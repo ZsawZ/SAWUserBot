@@ -357,7 +357,7 @@ async def repNakrutka(client: Client, message: Message):
 # Спам
 @app.on_message(filters.command('spam', prefixes=".") & filters.me)
 async def spam(client: Client, message: Message):
-        if not message.text.split(prefix + 'spam', maxsplit=1)[1]:
+        if not message.text.split("." + 'spam', maxsplit=1)[1]:
                 await message.edit('<i>Нету аргументов.</i>')
                 return
         count = message.command[1]
@@ -436,7 +436,7 @@ async def tagall(client, message):
 
     args = ' ! '
     if len(message.text.split()) >= 2:
-        args = message.text.split(prefix + 'tagall ', maxsplit=1)[1]
+        args = message.text.split("." + 'tagall ', maxsplit=1)[1]
     await message.delete()
     chat_id = message.chat.id
     string = ""
@@ -508,7 +508,7 @@ async def type(client: Client, message: Message):
     log = logi + timnow + "\n╰ Коммада type"
     await app.send_message("ClipUSERBOT_LOGGERbot", log)
 
-    orig_text = message.text.split(prefix + "type ", maxsplit=1)[1]
+    orig_text = message.text.split("." + "type ", maxsplit=1)[1]
     text = orig_text
     tbp = ""
     typing_symbol = "▒"
@@ -532,7 +532,7 @@ async def ladder(client: Client, message: Message):
     log = logi + timnow + "\n╰ Комманда ladder"
     await app.send_message("ClipUSERBOT_LOGGERbot", log)
 
-    orig_text = message.text.split(prefix + "ladder ", maxsplit=1)[1]
+    orig_text = message.text.split("." + "ladder ", maxsplit=1)[1]
     text = orig_text
     output = []
     for i in range(len(text) + 1):
@@ -1006,7 +1006,7 @@ async def hide(client: Client, message: Message):
     log = logi + timnow + "\n╰ Скрытие текста"
     await app.send_message("ClipUSERBOT_LOGGERbot", log)
 
-    orig_text = message.text.split(prefix + "hide ", maxsplit=1)[1]
+    orig_text = message.text.split("." + "hide ", maxsplit=1)[1]
     text = orig_text
     tbp = ""
     typing_symbol = "▒"
