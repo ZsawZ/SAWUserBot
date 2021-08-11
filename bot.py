@@ -55,7 +55,6 @@ print(logo)
 
 # Логи + Вход
 app = Client("my_account")
-import logging
 
 logi = "╭ Логи\n┃ "
 

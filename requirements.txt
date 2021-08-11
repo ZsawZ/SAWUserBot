@@ -21,7 +21,6 @@ httpcore==0.13.6
 httpx==0.18.2
 idna==3.2
 Jinja2==3.0.1
-logging==0.4.9.6
 loguru==0.5.3
 MarkupSafe==2.0.1
 multidict==5.1.0
