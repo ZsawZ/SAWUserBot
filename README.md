@@ -1,40 +1,67 @@
-<meta name="Clip Userbot" content="Clip Userbot - Самый простой юзербот для телеграм">
-<meta name="Clip" content="Clip Userbot, Userbot, telegram"> 
-<p align="center"><a href="https://t.me/arturdestroyerbot"><img src="https://github.com/A9FM/filesUB/blob/main/logo.png" width="500"></a></p> 
-<p align="center"><a href="https://github.com/A9FM/ClipUserbot"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/A9FM/ClipUserbot&title=Profile%20Views" width="250"></a></p> 
+<meta name="SAW Userbot" content="SAW Userbot - Самый простой юзербот для телеграм">
+
+<meta name="SAW" content="SAW Userbot, Userbot, telegram"> 
+
+<p align="center"><a href="https://t.me/arturdestroyerbot"><img src="https://github.com/Brawl9008/filesUB/blob/main/logo.png" width="500"></a></p> 
+
+<p align="center"><a href="https://github.com/Brawl9008/SAWUserbot"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/Brawl9008/SAWUserbot&title=Profile%20Views" width="250"></a></p> 
 
 ## Помощь 🚑
-<a href="https://t.me/arturdestroyerbot"><img src="https://github.com/A9FM/filesUB/blob/main/channel.png"></a>
-<a href="https://t.me/ClipUserbot"><img src="https://github.com/A9FM/filesUB/blob/main/chat.png"></a>
+
+<a href="https://t.me/SAWUser_bot">
+
+<a href="https://t.me/SAWUserbot">
 
 ## Создатель
-* [Telegram](https://t.me/a9_fm)
-* [Github](https://github.com/A9FM)
+
+* [Telegram](https://t.me/sawandr)
+
+* [Github](https://github.com/Brawl9008)
 
 ## Для Termux (Android)
+
 ### Установка
+
 ```
-pkg update -y ; pkg install python -y ; pkg install git -y ; curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py ; python3 get-pip.py ; rm get-pip.py ; git clone https://github.com/A9FM/ClipUserbot ; cd ClipUserbot ; termux-wake-lock ; python3 bot.py
+
+pkg update -y ; pkg install python -y ; pkg install git -y ; curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py ; python3 get-pip.py ; rm get-pip.py ; git clone https://github.com/Brawl9008/SAWUserbot ; cd SAWUserbot ; termux-wake-lock ; python3 bot.py
+
 ```
 
 ### При запуске
+
 ```
-cd ClipUserbot ; termux-wake-lock ; python bot.py
+
+cd SAWUserbot ; termux-wake-lock ; python bot.py
+
 ```
 
 ---
 
 ## Для Windows
+
 ### Установка
 
 Для установки скачиваем с оффициального сайта [Python](https://www.python.org/downloads/) самой новой версии (текущая 3.9.6)
 
 Теперь запускаем установщик, и обьязательно ставим галочку на пункт
+
 - [x] ADD PYTHON 3.9 to PATH
 
 И ожидаем...
 
-Теперь скачиваем ЮзерБота По этой [Ссылке](https://github.com/A9FM/ClipUserbot/archive/refs/heads/main.zip)
+Теперь скачиваем ЮзерБота По этой [Ссылке](https://github.com/Brawl9008/SAWUserbot/archive/refs/heads/main.zip) если нету то ты лох. устанавливай вручную git, запускай cmd и пиши 
+
+```
+
+git clone https://github.com/Brawl9008/SAWUserbot
+
+cd SAWUserbot
+
+python bot.py 
+
+```
+
 Разархивируем файлы, и запускаем файл windows.bat
 
 Всё)
@@ -46,35 +73,69 @@ cd ClipUserbot ; termux-wake-lock ; python bot.py
 ---
 
 ## Для Linux [Debian/Kali]
+
 ### Установка
+
 Открываем терминал, и устанавливаем Python и также Git
-```
-apt install python3 git python3-pip
+
 ```
 
-Теперь мы клонируем репозиторий коммандой
+apt install python3 git python3-pip
+
 ```
-git clone https://github.com/A9FM/ClipUserbot.git
+
+Теперь мы клонируем репозиторий командой
+
+```
+
+git clone https://github.com/Brawl9008/SAWUserbot.git
+
 ```
 
 Переходим в директерию с юзерботом
+
 ```
-cd ClipUserbot
+
+cd SAWUserbot
+
 ```
 
 И запускаем файл через Python
+
 ```
+
 python3 bot.py
+
 ```
 
 Готово)
 
 ### Запуск
 
-Запускаем терминал и пишем такие комманды
+Запускаем терминал и пишем такие команды
+
 ```
-cd ClipUserbot && python3 bot.py
+
+cd SAWUserbot && python3 bot.py
+
 ```
+
 ---
 
-## [© ClipUserbot](https://github.com/A9FM/filesUB/blob/main/README.md) 
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+
+
+
