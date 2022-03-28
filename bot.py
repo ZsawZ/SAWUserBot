@@ -1177,7 +1177,7 @@ async def unban(client: Client, message: Message):
         await message.edit("**Я админ?**")
 
 mute_permission = ChatPermissions(
-    can_send_messages = False
+    can_send_messages = False,
     can_send_media_messages = False,
     can_send_animations = False,
     can_send_games = False,
