@@ -1179,7 +1179,6 @@ async def unban(client: Client, message: Message):
 mute_permission = ChatPermissions(
     can_send_messages = False,
     can_send_media_messages = False,
-    can_send_animations = False,
     can_send_games = False,
     can_use_inline_bots = False,
     can_add_web_page_previews = False,
