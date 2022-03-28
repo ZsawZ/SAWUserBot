@@ -477,7 +477,7 @@ async def tagall(client, message):
                 string += f"<a href='https://t.me/{tag}'>{w}</a> "
             else:
                 w = random.choice(list)
-                string += f"<a href="tg://user?id={member.user.id}">{w}</a> "
+                string += f"<a href='tg://user?id={member.user.id}'>{w}</a> "
             limit += 1
         else:
             text = f"{args}|{string}"
