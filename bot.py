@@ -744,7 +744,7 @@ async def link_short(link: str):
 @app.on_message(filters.command("short", prefixes=".") & filters.me)
 async def shorten_link_command(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Сокращенна ссылка"
+    log = logi + timnow + "\n╰ Сокращенная ссылка"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.reply_to_message:
@@ -755,7 +755,7 @@ async def shorten_link_command(client: Client, message: Message):
         except IndexError:
             return await message.delete()
     output = (await link_short(link))["data"]
-    await message.edit(f"Сокращенная ссылка: {output["link"]}")
+    await message.edit(f"Сокращенная ссылка: {output['link']}")
 
 # QR-code
 content_filter = filters.create(lambda _, __, msg: bool(get_cmd_content(msg)))
