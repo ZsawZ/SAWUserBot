@@ -474,7 +474,7 @@ async def tagall(client, message):
             list = ["ᅠ", "ᅠ"]
             if tag != None:
                 w = random.choice(list)
-                string += f"<a href="https://t.me/{tag}">{w}</a> "
+                string += f"<a href='https://t.me/{tag}'>{w}</a> "
             else:
                 w = random.choice(list)
                 string += f"<a href="tg://user?id={member.user.id}">{w}</a> "
