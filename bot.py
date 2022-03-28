@@ -12,7 +12,7 @@ import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama
 from gtts import gTTS
 import os
 
-logo = """\033[31m
+print('logo = """\033[31m
 ██████████████████████████████████████████████████████
 
 █▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒██████████▒▒▒▒▒▒█
@@ -53,7 +53,7 @@ logo = """\033[31m
 ╚██████╔╝██████╔╝███████╗██║░░██║░░░░░░██████╦╝╚█████╔╝░░░██║░░░
 
 ░╚═════╝░╚═════╝░╚══════╝╚═╝░░╚═╝░░░░░░╚═════╝░░╚════╝░░░░╚═╝░░░
-\033[34m
+\033[34m')
 Telegram Канал - @SAWuser_bot
 Помощь - @saw_andr
 Версия 1.9.1 [РЕЛИЗ]
@@ -66,7 +66,6 @@ app = Client("my_account")
 
 logi = "╭ Логи\n┃ "
 
- Вход в группу [Обновления]
 with app:
          app.join_chat('SAWuser_bot') # Прошу, не убирайте эту строку
 
@@ -110,13 +109,13 @@ async def help(client: Client, message: Message):
 ⇛ <code>sp</code> [Символ] - Смена префикса (знака в начале для комманд)
 
 『Мало временни』
-⇛ <code>afk</code> [Причина] - Ввойти в АФК [Не в сети]
+⇛ <code>afk</code> [Причина] - Войти в АФК [Не в сети]
 ⇛ <code>unafk</code> - Выйти из АФК
 ⇛ <code>wiki</code> [Слово] - Поиск в Википедии
 ⇛ <code>weather</code> [Город] - Погода
 
 『Троллинг』
-⇛ <code>hack</code> - Взлом Пентагонна
+⇛ <code>hack</code> - Взлом Пентагона
 ⇛ <code>jopa</code> - Взлом жопы
 ⇛ <code>mum</code> - Поиск матери
 ⇛ <code>drugs</code> - Принять 3aПрEщEHHblE BещECTBа
