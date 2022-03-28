@@ -1150,7 +1150,7 @@ async def ban_hammer(client: Client, message: Message):
         try:
             reply = message.reply_to_message
             await app.kick_chat_member(message.chat.id, reply.from_user.id, int(time.time() + 31536000))
-            await message.edit(f"<b><a href="tg://user?id={reply.from_user.id}">{reply.from_user.first_name}</a> забанен!</b>")
+            await message.edit(f"<b><a href='tg://user?id={reply.from_user.id}'>{reply.from_user.first_name}</a> забанен!</b>")
         except:
             await message.edit("**Я не могу забанить этого пользователя.**")
     else:
