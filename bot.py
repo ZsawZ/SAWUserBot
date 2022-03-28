@@ -1179,12 +1179,11 @@ async def unban(client: Client, message: Message):
 mute_permission = ChatPermissions(
     can_send_messages = False,
     can_send_media_messages = False,
-    can_send_games = False,
     can_use_inline_bots = False,
     can_add_web_page_previews = False,
     can_send_polls = False,
     can_change_info = False,
-    can_invite_users = True,
+    can_invite_users = False,
     can_pin_messages = False,
 )
 
@@ -1210,7 +1209,7 @@ async def mute_hammer(client: Client, message: Message):
                 user_id=get_user.id,
                 permissions=mute_permission,
             )
-            await message.edit(f"**{get_user.first_name} Был замучен.**")
+            await message.edit(f"**{get_user.first_name} Был изолирован.**")
         except:
             await message.edit("**Я не могу замутить.**")
     else:
