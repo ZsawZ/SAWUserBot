@@ -945,7 +945,7 @@ async def send_music(client: Client, message: Message):
             # delete the message from Saved Messages
             await app.delete_messages("me", saved.message_id)
         except TimeoutError:
-            await message.edit("That didn"t work out")
+            await message.edit('That didn"t work out')
             await asyncio.sleep(2)
         await message.delete()
     except Exception as e:
