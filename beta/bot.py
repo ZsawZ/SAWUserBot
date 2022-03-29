@@ -56,7 +56,7 @@ logo = """\033[31m
 \033[34m
 Telegram Канал - @SAWuser_bot
 Помощь - @saw_andr
-Версия 1.9.1 [РЕЛИЗ]
+Версия 1.9.2 [БЕТА]
 
 Логи:"""
 print(logo)
@@ -96,7 +96,7 @@ async def help(client: Client, message: Message):
     log = logi + timnow + "\n╰ Список комманд"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("""<b><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW 1.9.1 [РЕЛИЗ] 🤖</a></b>
+    await message.edit("""<b><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW 1.9.2 [БЕТА] 🤖</a></b>
 <b><a href="https://t.me/sawandr">👨‍💻 Создатель 👨‍💻</a></b>
 <b><a href="https://github.com/Brawl9008/SAWUserbot#readme">🤔 Как установить? 🤔</a></b>
 
@@ -105,7 +105,7 @@ async def help(client: Client, message: Message):
 ⇛ <code>ping</code> - Проверка Пинга Юзербота [Качество полключения]
 ⇛ <code>restart</code> - Перезагрузка [Ошибка, Баг в Юзерботе]
 ⇛ <code>update</code> - Обновить
-⇛ <code>beta</code> - Обновиться на [РЕЛИЗ]
+⇛ <code>beta</code> - Обновиться на [БЕТА]
 ⇛ <code>sp</code> [Символ] - Смена префикса (знака в начале для комманд)
 
 『Мало временни』
@@ -198,10 +198,10 @@ async def updatte(client: Client, message: Message):
 async def beta(client: Client, message: Message):
     now = datetime.datetime.now()
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Юзербот был обновлён [Бета]"
+    log = logi + timnow + "\n╰ Юзербот был обновлён [БЕТА]"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("<code>Обновление на бета версию...</code>")
+    await message.edit("<code>Обновление на БЕТА версию...</code>")
     os.remove("bot.py")
     url = "https://raw.githubusercontent.com/Brawl9008/SAWUserbot/beta/bot.py"
     wget.download(url, "")
