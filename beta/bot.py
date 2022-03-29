@@ -1536,4 +1536,17 @@ async def mum(client: Client, message: Message):
     text = "✅ Мамка найдена... Она в канаве"
     await message.edit(str(text))
 
+#tmute 
+@Client.on_message(filters.command("sawmute", prefixes=".") & filters.me)
+async def tmute_command(client: Client, message: Message):
+    cause = text(message)
+    if message.reply_to_message and message.chat.type not in ["private", "channel"]:
+        user_for_tmute, name = await get_user_and_name(message)
+
+        if (
+            message.reply_to_message.from_user
+            and message.reply_to_message.from_user.is_self
+        ):
+            return await message.edit("<b>Не на себе!</b>")
+
 app.run()
