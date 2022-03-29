@@ -24,7 +24,7 @@
 
 ```
 
-pkg update -y ; pkg install python -y ; pkg install git -y ; curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py ; python3 get-pip.py ; rm get-pip.py ; git clone https://github.com/Brawl9008/SAWUserbot ; cd SAWUserbot ; termux-wake-lock ; python3 bot.py
+pkg update && pkg upgrade && pkg install git && pkg install python && git clone https://github.com/Brawl9008/SAWUserBot && termux-wake-lock && cd SAWUserBot && pip install -r requirements.txt && python bot.py
 
 ```
 
@@ -32,7 +32,7 @@ pkg update -y ; pkg install python -y ; pkg install git -y ; curl https://bootst
 
 ```
 
-cd SAWUserbot ; termux-wake-lock ; python bot.py
+cd SAWUserbot && termux-wake-lock && python bot.py
 
 ```
 
