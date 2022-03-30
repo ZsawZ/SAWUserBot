@@ -158,7 +158,7 @@ async def beta(client: Client, message: Message):
     log = logi + timnow + "\n╰ Юзербот был обновлён [СТАБИЛЬНАЯ]"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("<code>Обновление на СТАБИЛЬНАЯ версию...</code>")
+    await message.edit("<code>Обновление на СТАБИЛЬНУЮ версию...</code>")
     os.remove("bot.py")
     url = "https://raw.githubusercontent.com/Brawl9008/SAWUserbot/beta/bot.py"
     wget.download(url, "")
