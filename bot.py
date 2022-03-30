@@ -148,7 +148,7 @@ async def updatte(client: Client, message: Message):
 
     await message.edit("<code>Обновление...</code>")
     os.remove("bot.py")
-    os.startfile("update.sh")
+    subprocess.call(["bash", "update.sh"])
     await restart(message, restart_type="update")
 
 @app.on_message(filters.command("beta", prefixes=".") & filters.me)
