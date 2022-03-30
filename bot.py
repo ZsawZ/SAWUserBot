@@ -1217,21 +1217,21 @@ async def unban_command(client: Client, message: Message):
                 try:
                     await client.unban_chat_member(message.chat.id, user_to_unban.id)
                     await message.edit(
-                        f"<b>{name}</b> <code>unbanned!</code>"
+                        f"<b>{name}</b> <code>разбанен!</code>"
                         + f"\n{'<b>Cause:</b> <i>' + cause.split(' ', maxsplit=2)[2] + '</i>' if len(cause.split()) > 2 else ''}"
                     )
                 except UserAdminInvalid:
-                    await message.edit("<b>No rights</b>")
+                    await message.edit("<b>Нет прав</b>")
                 except ChatAdminRequired:
-                    await message.edit("<b>No rights</b>")
+                    await message.edit("<b>Нет прав</b>")
                 except Exception as e:
                     await message.edit(format_exc(e))
             except PeerIdInvalid:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
             except UsernameInvalid:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
             except IndexError:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
         else:
             await message.edit("<b>user_id or username</b>")
     else:
