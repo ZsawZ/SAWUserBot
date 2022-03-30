@@ -149,7 +149,7 @@ async def updatte(client: Client, message: Message):
 
     await message.edit("<code>Обновление...</code>")
     subprocess.call(["bash", "update.sh"])
-    await message.edit("<code>Юзербот успешно обновлен!</code>")
+    app.send_audio(sys.argv[1], "update.ogg", "<code>Юзербот успешно обновлён!</code>")
     await restart(message, restart_type="update")
 
 @app.on_message(filters.command("beta", prefixes=".") & filters.me)
