@@ -1664,7 +1664,7 @@ async def mum(client: Client, message: Message):
 
 
 #shell
-@Client.on_message(filters.command("shell", prefixes=".") & filters.me)
+@app.on_message(filters.command("shell", prefixes=".") & filters.me)
 async def shell(_, message: Message):
     if len(message.command) < 2:
         return await message.edit("<b>Specify the command in message text</b>")
