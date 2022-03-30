@@ -126,8 +126,7 @@ async def updatte(client: Client, message: Message):
 
     await message.edit("<code>Обновление...</code>")
     os.remove("bot.py")
-    url = "https://raw.githubusercontent.com/Brawl9008/SAWUserbot/main/bot.py"
-    wget.download(url, "")
+    os.startfile("update.sh")
     await restart(message, restart_type="update")
 
 @app.on_message(filters.command("beta", prefixes=".") & filters.me)
