@@ -33,6 +33,7 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+import subprocess
 
 logo = """\033[31m
 ██████████████████████████████████████████████████████
