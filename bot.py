@@ -1098,13 +1098,13 @@ async def ban_command(client: Client, message: Message):
             )
 
             await message.edit(
-                f"<b>{name}</b> <code>banned!</code>"
+                f"<b>{name}</b> <code>забанен!</code>"
                 + f"\n{'<b>Cause:</b> <i>' + text_c.split(maxsplit=1)[1] + '</i>' if len(text_c.split()) > 1 else ''}"
             )
         except UserAdminInvalid:
-            await message.edit("<b>No rights</b>")
+            await message.edit("<b>Нет прав</b>")
         except ChatAdminRequired:
-            await message.edit("<b>No rights</b>")
+            await message.edit("<b>Нет прав</b>")
         except Exception as e:
             await message.edit(format_exc(e))
     elif not message.reply_to_message and message.chat.type not in [
@@ -1118,7 +1118,7 @@ async def ban_command(client: Client, message: Message):
                 elif await check_username_or_id(cause.split(" ")[1]) == "user":
                     user_to_ban = await client.get_users(cause.split(" ")[1])
                 else:
-                    await message.edit("<b>Invalid user type</b>")
+                    await message.edit("<b>Человек не не найден</b>")
                     return
 
                 name = (
@@ -1156,23 +1156,23 @@ async def ban_command(client: Client, message: Message):
 
                     await client.ban_chat_member(message.chat.id, user_to_ban.id)
                     await message.edit(
-                        f"<b>{name}</b> <code>banned!</code>"
+                        f"<b>{name}</b> <code>забанен!</code>"
                         + f"\n{'<b>Cause:</b> <i>' + text_c.split(' ', maxsplit=2)[2] + '</i>' if len(text_c.split()) > 2 else ''}"
                     )
                 except UserAdminInvalid:
-                    await message.edit("<b>No rights</b>")
+                    await message.edit("<b>Нет прав</b>")
                 except ChatAdminRequired:
-                    await message.edit("<b>No rights</b>")
+                    await message.edit("<b>Нет прав</b>")
                 except Exception as e:
                     await message.edit(format_exc(e))
             except PeerIdInvalid:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
             except UsernameInvalid:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
             except IndexError:
-                await message.edit("<b>User is not found</b>")
+                await message.edit("<b>Пользователь не найден</b>")
         else:
-            await message.edit("<b>user_id or username</b>")
+            await message.edit("<b>айди или юзернейм/b>")
     else:
         await message.edit("<b>Unsupported</b>")
 
@@ -1184,13 +1184,13 @@ async def unban_command(client: Client, message: Message):
         try:
             await client.unban_chat_member(message.chat.id, user_for_unban)
             await message.edit(
-                f"<b>{name}</b> <code>unbanned!</code>"
+                f"<b>{name}</b> <code>разбанен!</code>"
                 + f"\n{'<b>Cause:</b> <i>' + cause.split(maxsplit=1)[1] + '</i>' if len(cause.split()) > 1 else ''}"
             )
         except UserAdminInvalid:
-            await message.edit("<b>No rights</b>")
+            await message.edit("<b>Нет прав</b>")
         except ChatAdminRequired:
-            await message.edit("<b>No rights</b>")
+            await message.edit("<b>Нет прав</b>")
         except Exception as e:
             await message.edit(format_exc(e))
 
@@ -1205,7 +1205,7 @@ async def unban_command(client: Client, message: Message):
                 elif await check_username_or_id(cause.split(" ")[1]) == "user":
                     user_to_unban = await client.get_users(cause.split(" ")[1])
                 else:
-                    await message.edit("<b>Invalid user type</b>")
+                    await message.edit("<b>Человек не найден!</b>")
                     return
 
                 name = (
