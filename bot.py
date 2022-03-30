@@ -1068,29 +1068,113 @@ async def leave(client: Client, message: Message):
     await asyncio.sleep(2)
     await client.leave_chat(chat_id=message.chat.id)
 
-@app.on_message(filters.command("ban", prefixes=".") & filters.me)
-async def ban_hammer(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Запрос на бан в беседе"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
-
-    if await CheckAdmin(message) is True:
-        reply = message.reply_to_message
-        if reply:
-            user = reply.from_user["id"]
-        else:
-            user = get_arg(message)
-            if not user:
-                await message.edit("**Я должен кого то забанить?**")
-                return
+@Client.on_message(filters.command("ban", prefixes=".") & filters.me)
+async def ban_command(client: Client, message: Message):
+    cause = text(message)
+    if message.reply_to_message and message.chat.type not in ["private", "channel"]:
+        user_for_ban, name = await get_user_and_name(message)
         try:
-            reply = message.reply_to_message
-            await app.kick_chat_member(message.chat.id, reply.from_user.id, int(time.time() + 31536000))
-            await message.edit(f"<b><a href='tg://user?id={reply.from_user.id}'>{reply.from_user.first_name}</a> забанен!</b>")
-        except:
-            await message.edit("**Я не могу забанить этого пользователя.**")
+            await client.ban_chat_member(message.chat.id, user_for_ban)
+            channel = await client.resolve_peer(message.chat.id)
+            user_id = await client.resolve_peer(user_for_ban)
+            if "report_spam" in cause.lower().split():
+                await client.send(
+                    functions.channels.ReportSpam(
+                        channel=channel,
+                        participant=user_id,
+                        id=[message.reply_to_message.message_id],
+                    )
+                )
+            if "delete_history" in cause.lower().split():
+                await client.send(
+                    functions.channels.DeleteParticipantHistory(
+                        channel=channel, participant=user_id
+                    )
+                )
+            text_c = "".join(
+                f" {_}"
+                for _ in cause.split()
+                if _.lower() not in ["delete_history", "report_spam"]
+            )
+
+            await message.edit(
+                f"<b>{name}</b> <code>banned!</code>"
+                + f"\n{'<b>Cause:</b> <i>' + text_c.split(maxsplit=1)[1] + '</i>' if len(text_c.split()) > 1 else ''}"
+            )
+        except UserAdminInvalid:
+            await message.edit("<b>No rights</b>")
+        except ChatAdminRequired:
+            await message.edit("<b>No rights</b>")
+        except Exception as e:
+            await message.edit(format_exc(e))
+    elif not message.reply_to_message and message.chat.type not in [
+        "private",
+        "channel",
+    ]:
+        if len(cause.split()) > 1:
+            try:
+                if await check_username_or_id(cause.split(" ")[1]) == "channel":
+                    user_to_ban = await client.get_chat(cause.split(" ")[1])
+                elif await check_username_or_id(cause.split(" ")[1]) == "user":
+                    user_to_ban = await client.get_users(cause.split(" ")[1])
+                else:
+                    await message.edit("<b>Invalid user type</b>")
+                    return
+
+                name = (
+                    user_to_ban.first_name
+                    if getattr(user_to_ban, "first_name", None)
+                    else user_to_ban.title
+                )
+
+                try:
+                    channel = await client.resolve_peer(message.chat.id)
+                    user_id = await client.resolve_peer(user_to_ban.id)
+                    if (
+                        "report_spam" in cause.lower().split()
+                        and message.reply_to_message
+                    ):
+                        await client.send(
+                            functions.channels.ReportSpam(
+                                channel=channel,
+                                participant=user_id,
+                                id=[message.reply_to_message.message_id],
+                            )
+                        )
+                    if "delete_history" in cause.lower().split():
+                        await client.send(
+                            functions.channels.DeleteParticipantHistory(
+                                channel=channel, participant=user_id
+                            )
+                        )
+
+                    text_c = "".join(
+                        f" {_}"
+                        for _ in cause.split()
+                        if _.lower() not in ["delete_history", "report_spam"]
+                    )
+
+                    await client.ban_chat_member(message.chat.id, user_to_ban.id)
+                    await message.edit(
+                        f"<b>{name}</b> <code>banned!</code>"
+                        + f"\n{'<b>Cause:</b> <i>' + text_c.split(' ', maxsplit=2)[2] + '</i>' if len(text_c.split()) > 2 else ''}"
+                    )
+                except UserAdminInvalid:
+                    await message.edit("<b>No rights</b>")
+                except ChatAdminRequired:
+                    await message.edit("<b>No rights</b>")
+                except Exception as e:
+                    await message.edit(format_exc(e))
+            except PeerIdInvalid:
+                await message.edit("<b>User is not found</b>")
+            except UsernameInvalid:
+                await message.edit("<b>User is not found</b>")
+            except IndexError:
+                await message.edit("<b>User is not found</b>")
+        else:
+            await message.edit("<b>user_id or username</b>")
     else:
-        await message.edit("**Я админ?**")
+        await message.edit("<b>Unsupported</b>")
 
 @app.on_message(filters.command("unban", prefixes=".") & filters.me)
 async def unban(client: Client, message: Message):
