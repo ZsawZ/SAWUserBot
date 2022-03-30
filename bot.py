@@ -56,7 +56,7 @@ logo = """\033[31m
 \033[34m
 Telegram Канал - @SAWuser_bot
 Помощь - @saw_andr
-Версия 1.9.2 [БЕТА]
+Версия 1.9.3 [СТАБИЛЬНАЯ]
 
 Логи:"""
 print(logo)
@@ -96,7 +96,7 @@ async def help(client: Client, message: Message):
     log = logi + timnow + "\n╰ Список комманд"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("""<b><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW 1.9.2 [БЕТА] 🤖</a></b>
+    await message.edit("""<b><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW 1.9.3 [СТАБИЛЬНАЯ] 🤖</a></b>
 <b><a href="https://t.me/sawandr">👨‍💻 Создатель 👨‍💻</a></b>
 <b><a href="https://github.com/Brawl9008/SAWUserbot#readme">🤔 Как установить? 🤔</a></b>
 <b><a href="https://telegra.ph/KOMANDY-SAWUSERBOT-03-29">📂Команды📂</a></b>""" ,disable_web_page_preview=True)
@@ -134,10 +134,10 @@ async def updatte(client: Client, message: Message):
 async def beta(client: Client, message: Message):
     now = datetime.datetime.now()
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Юзербот был обновлён [БЕТА]"
+    log = logi + timnow + "\n╰ Юзербот был обновлён [СТАБИЛЬНАЯ]"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("<code>Обновление на БЕТА версию...</code>")
+    await message.edit("<code>Обновление на СТАБИЛЬНАЯ версию...</code>")
     os.remove("bot.py")
     url = "https://raw.githubusercontent.com/Brawl9008/SAWUserbot/beta/bot.py"
     wget.download(url, "")
