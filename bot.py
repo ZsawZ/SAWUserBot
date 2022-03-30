@@ -148,8 +148,8 @@ async def updatte(client: Client, message: Message):
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
     await message.edit("<code>Обновление...</code>")
-    os.remove("bot.py")
     subprocess.call(["bash", "update.sh"])
+    await message.edit("<code>Юзербот успешно обновлен!</code>")
     await restart(message, restart_type="update")
 
 @app.on_message(filters.command("beta", prefixes=".") & filters.me)
