@@ -11,6 +11,28 @@ from bs4 import BeautifulSoup
 import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 from gtts import gTTS
 import os
+import re
+from time import time
+from typing import Dict, Union
+from contextlib import suppress
+
+from pyrogram import Client, ContinuePropagation, filters
+from pyrogram.errors import (
+    UserAdminInvalid,
+    ChatAdminRequired,
+    PeerIdInvalid,
+    UsernameInvalid,
+    RPCError,
+)
+from pyrogram.raw import functions, types
+from pyrogram.types import Message, ChatPermissions
+from pyrogram.utils import (
+    get_channel_id,
+    MAX_USER_ID,
+    MIN_CHAT_ID,
+    MAX_CHANNEL_ID,
+    MIN_CHANNEL_ID,
+)
 
 logo = """\033[31m
 ██████████████████████████████████████████████████████
