@@ -1176,25 +1176,66 @@ async def ban_command(client: Client, message: Message):
     else:
         await message.edit("<b>Unsupported</b>")
 
-@app.on_message(filters.command("unban", prefixes=".") & filters.me)
-async def unban(client: Client, message: Message):
-    if await CheckAdmin(message) is True:
-        reply = message.reply_to_message
-        if reply:
-            user = reply.from_user["id"]
-        else:
-            user = get_arg(message)
-            if not user:
-                await message.edit("**Я должен кого то разбанить?**")
-                return
+@Client.on_message(filters.command("unban", prefixes=".") & filters.me)
+async def unban_command(client: Client, message: Message):
+    cause = text(message)
+    if message.reply_to_message and message.chat.type not in ["private", "channel"]:
+        user_for_unban, name = await get_user_and_name(message)
         try:
-            get_user = await app.get_users(user)
-            await app.unban_chat_member(chat_id=message.chat.id, user_id=get_user.id)
-            await message.edit(f"**Пользователь {get_user.first_name} был разбанен.**")
-        except:
-            await message.edit("**Я не могу разбанить.**")
+            await client.unban_chat_member(message.chat.id, user_for_unban)
+            await message.edit(
+                f"<b>{name}</b> <code>unbanned!</code>"
+                + f"\n{'<b>Cause:</b> <i>' + cause.split(maxsplit=1)[1] + '</i>' if len(cause.split()) > 1 else ''}"
+            )
+        except UserAdminInvalid:
+            await message.edit("<b>No rights</b>")
+        except ChatAdminRequired:
+            await message.edit("<b>No rights</b>")
+        except Exception as e:
+            await message.edit(format_exc(e))
+
+    elif not message.reply_to_message and message.chat.type not in [
+        "private",
+        "channel",
+    ]:
+        if len(cause.split()) > 1:
+            try:
+                if await check_username_or_id(cause.split(" ")[1]) == "channel":
+                    user_to_unban = await client.get_chat(cause.split(" ")[1])
+                elif await check_username_or_id(cause.split(" ")[1]) == "user":
+                    user_to_unban = await client.get_users(cause.split(" ")[1])
+                else:
+                    await message.edit("<b>Invalid user type</b>")
+                    return
+
+                name = (
+                    user_to_unban.first_name
+                    if getattr(user_to_unban, "first_name", None)
+                    else user_to_unban.title
+                )
+
+                try:
+                    await client.unban_chat_member(message.chat.id, user_to_unban.id)
+                    await message.edit(
+                        f"<b>{name}</b> <code>unbanned!</code>"
+                        + f"\n{'<b>Cause:</b> <i>' + cause.split(' ', maxsplit=2)[2] + '</i>' if len(cause.split()) > 2 else ''}"
+                    )
+                except UserAdminInvalid:
+                    await message.edit("<b>No rights</b>")
+                except ChatAdminRequired:
+                    await message.edit("<b>No rights</b>")
+                except Exception as e:
+                    await message.edit(format_exc(e))
+            except PeerIdInvalid:
+                await message.edit("<b>User is not found</b>")
+            except UsernameInvalid:
+                await message.edit("<b>User is not found</b>")
+            except IndexError:
+                await message.edit("<b>User is not found</b>")
+        else:
+            await message.edit("<b>user_id or username</b>")
     else:
-        await message.edit("**Я админ?**")
+        await message.edit("<b>Unsupported</b>")
 
 mute_permission = ChatPermissions(
     can_send_messages = False,
