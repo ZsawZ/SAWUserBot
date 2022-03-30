@@ -104,9 +104,9 @@ with app:
              try:
                  restart_type = sys.argv[3]
                  if restart_type == "1":
-                    app.send_audio(sys.argv[1], "update.ogg", "<code>Обновление завершенно!</code>")
+                    app.send_audio(sys.argv[1], "update.ogg", "<code>Обновление завершено!</code>")
                  else:
-                    app.send_audio(sys.argv[1], "start.ogg", "<code>Перезагрузка завершенна!</code>")
+                    app.send_audio(sys.argv[1], "start.ogg", "<code>Перезагрузка завершена!</code>")
              except:
                 pass
 
