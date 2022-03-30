@@ -1176,7 +1176,7 @@ async def ban_command(client: Client, message: Message):
     else:
         await message.edit("<b>Unsupported</b>")
 
-@Client.on_message(filters.command("unban", prefixes=".") & filters.me)
+@app.on_message(filters.command("unban", prefixes=".") & filters.me)
 async def unban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
