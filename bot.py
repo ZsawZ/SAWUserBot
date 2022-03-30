@@ -1068,7 +1068,7 @@ async def leave(client: Client, message: Message):
     await asyncio.sleep(2)
     await client.leave_chat(chat_id=message.chat.id)
 
-@Client.on_message(filters.command("ban", prefixes=".") & filters.me)
+@app.on_message(filters.command("ban", prefixes=".") & filters.me)
 async def ban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
