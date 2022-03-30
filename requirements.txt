@@ -45,3 +45,4 @@ wikipedia==1.4.0
 win32-setctime==1.0.3
 yarl==1.6.3
 youtube-dl==2021.6.6
+git==2.35.1
