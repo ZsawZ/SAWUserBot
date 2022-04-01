@@ -1725,7 +1725,7 @@ async def demotivator(client, message):
  
     if message.reply_to_message.photo:
         await client.unblock_user("memegeneration_bot")
-        capt = "1. " + message.text.split(prefix + "dem ", maxsplit=1)[1]
+        capt = "1. " + message.text.split(. + "dem ", maxsplit=1)[1]
         await client.send_photo(
             chat_id="memegeneration_bot",
             photo=message.reply_to_message.photo.file_id,
