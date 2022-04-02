@@ -671,7 +671,9 @@ async def ping(client: Client, message: Message):
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
     start = perf_counter()
-    await message.edit("Pong")
+    await message.edit("Измеряю пинг.")
+    await message.edit("Измеряю пинг..")
+    await message.edit("Измеряю пинг...")
     end = perf_counter()
     ping2 = end - start
     ping = ping2 * 1000
@@ -839,7 +841,6 @@ def get_pic(city):
             pic.write(block)
         return file_name
 
-# Погода
 @app.on_message(filters.command("weather", prefixes=".") & filters.me)
 async def weather(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
