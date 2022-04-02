@@ -9,7 +9,7 @@ if __name__ == "__main__":
     api_id, api_hash, device_mod = my_api()
     prestart()
     modules = dict(root="modules")
-    Client = Client("my_account", api_id=api_id, api_hash=api_hash, device_model=device_mod, plugins=plugins).run()
+    Client = Client("my_account", api_id=api_id, api_hash=api_hash, device_model=device_mod, modules=modules).run()
  
  
  
