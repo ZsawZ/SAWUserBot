@@ -12,3 +12,6 @@ async def id(client: Client, message: Message):
     else:
         id = f"Айди: {message.reply_to_message.from_user.id}\nАйди чата: {message.chat.id}"
         await message.edit(id)
+
+module_list['id'] = f'{prefix}id'
+file_list['id'] = 'id.py'
