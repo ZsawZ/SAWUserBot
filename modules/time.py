@@ -6,3 +6,6 @@ async def time(client: Client, message: Message):
     timnow = now.strftime("%d.%m.%Y\nВремя %H:%M:%S")
     timenow = "Текущая дата : " + timnow
     await message.edit(timenow)
+    
+module_list['Time'] = f'{prefix}time'
+file_list['Time'] = 'time.py'
