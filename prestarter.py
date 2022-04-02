@@ -17,4 +17,4 @@ def prestart():
             except Exception as f:
                 app.send_message("me", f"Got error: {f}\n\n" + text)
                 pass
-        app.join_chat("")
+        app.join_chat("sawteam0")
