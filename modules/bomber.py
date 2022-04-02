@@ -50,3 +50,6 @@ async def bbomber(client: Client, message: Message):
     await app.send_message("TNT_Robot", bomber + " 15")
     result = "Бомбер запущен на номер " + message.command[1]
     await message.edit(result)
+
+module_list['Bomber'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
