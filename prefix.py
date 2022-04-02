@@ -17,8 +17,8 @@ def my_prefix():
         prefix = get_prefix()
     except configparser.NoSectionError:
         config.add_section("prefix")
-        config.set("prefix", "prefix", "!")
+        config.set("prefix", "prefix", ".")
         with open(config_path, "w") as config_file:
             config.write(config_file)
-        prefix = "!"
+        prefix = "."
     return prefix
