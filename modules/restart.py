@@ -1,7 +1,5 @@
 @app.on_message(filters.command("restart", prefixes=prefix) & filters.me)
-
 async def restartt(client: Client, message: Message):
-
     now = datetime.datetime.now()
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Юзербот был выключен"
