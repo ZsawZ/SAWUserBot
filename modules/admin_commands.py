@@ -48,7 +48,7 @@ async def CheckAdmin(message: Message):
             await asyncio.sleep(2)
             await message.delete()
 
-@app.on_message(filters.command("leave", prefixes=".") & filters.me)
+@app.on_message(filters.command("leave", prefixes=prefix) & filters.me)
 async def leave(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Выход с чата"
@@ -58,7 +58,7 @@ async def leave(client: Client, message: Message):
     await asyncio.sleep(2)
     await client.leave_chat(chat_id=message.chat.id)
 
-@app.on_message(filters.command("ban", prefixes=".") & filters.me)
+@app.on_message(filters.command("ban", prefixes=prefix) & filters.me)
 async def ban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
@@ -166,7 +166,7 @@ async def ban_command(client: Client, message: Message):
     else:
         await message.edit("<b>Unsupported</b>")
 
-@app.on_message(filters.command("unban", prefixes=".") & filters.me)
+@app.on_message(filters.command("unban", prefixes=prefix) & filters.me)
 async def unban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
@@ -237,7 +237,7 @@ mute_permission = ChatPermissions(
     can_pin_messages = False,
 )
 
-@app.on_message(filters.command("mute", prefixes=".") & filters.me)
+@app.on_message(filters.command("mute", prefixes=prefix) & filters.me)
 async def mute_hammer(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на мут"
@@ -275,7 +275,7 @@ unmute_permissions = ChatPermissions(
     can_pin_messages=False,
 )
 
-@app.on_message(filters.command("unmute", prefixes=".") & filters.me)
+@app.on_message(filters.command("unmute", prefixes=prefix) & filters.me)
 async def unmute(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на размут"
@@ -303,7 +303,7 @@ async def unmute(client: Client, message: Message):
     else:
         await message.edit("**Я админ?**")
 
-@app.on_message(filters.command("kick", prefixes=".") & filters.me)
+@app.on_message(filters.command("kick", prefixes=prefix) & filters.me)
 async def kick_user(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на кик участника"
@@ -330,7 +330,7 @@ async def kick_user(client: Client, message: Message):
     else:
         await message.edit("**Я админ?**")
 
-@app.on_message(filters.command("pin", prefixes=".") & filters.me)
+@app.on_message(filters.command("pin", prefixes=prefix) & filters.me)
 async def pin_message(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на закрепление сообщения"
@@ -371,7 +371,7 @@ async def pin_message(client: Client, message: Message):
     await asyncio.sleep(3)
     await message.delete()
 
-@app.on_message(filters.command("unpin", prefixes=".") & filters.me)
+@app.on_message(filters.command("unpin", prefixes=prefix) & filters.me)
 async def pin(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Сообщение закрепленно"
@@ -384,7 +384,7 @@ async def pin(client: Client, message: Message):
     except:
         await message.edit("<b>Сделайте реплай сообщению</b>")
 
-@app.on_message(filters.command("admin", prefixes=".") & filters.me)
+@app.on_message(filters.command("admin", prefixes=prefix) & filters.me)
 async def promote(client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Выдан статус админа одному из участников"
@@ -422,7 +422,7 @@ async def promote(client, message: Message):
         except:
             pass
 
-@app.on_message(filters.command("unadmin", prefixes=".") & filters.me)
+@app.on_message(filters.command("unadmin", prefixes=prefix) & filters.me)
 async def demote(client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Отобран статус админа одному из участников"
@@ -460,7 +460,7 @@ async def demote(client, message: Message):
     except Exception as e:
         await message.edit(f"{e}")
 
-@app.on_message(filters.command("invite", prefixes=".") & filters.me)
+@app.on_message(filters.command("invite", prefixes=prefix) & filters.me)
 async def invite(client, message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Участник приглашён"
