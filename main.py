@@ -10,6 +10,11 @@ if __name__ == "__main__":
     prestart()
     modules = dict(root="modules")
     Client = Client("my_account", api_id=api_id, api_hash=api_hash, device_model=device_mod, plugins=modules).run()
+    app = Client("my_account")
  
+logi = "╭ Логи\n┃ "
  
+with app:
+         app.join_chat("SAWuser_bot") 
+  
  
