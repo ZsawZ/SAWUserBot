@@ -22,3 +22,6 @@ async def updatte(client: Client, message: Message):
     subprocess.call(["bash", "update.sh"])
     await message.edit("<code>Юзербот успешно обновлён!</code>")
     await restart(message, restart_type="1")
+
+module_list['Restarter'] = f'{prefix}restart | {prefix}update'
+file_list['Restarter'] = 'restart.py'
