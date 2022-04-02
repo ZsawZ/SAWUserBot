@@ -4,7 +4,7 @@ async def type(client: Client, message: Message):
 
     
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Коммада type"
+    log = logi + timnow + "\n╰ Комада type"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
     orig_text = message.text.split("." + "type ", maxsplit=1)[1]
