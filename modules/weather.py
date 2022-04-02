@@ -15,7 +15,7 @@ def get_pic(city):
             pic.write(block)
         return file_name
 
-@app.on_message(filters.command("weather", prefixes=".") & filters.me)
+@app.on_message(filters.command("weather", prefixes=prefix) & filters.me)
 async def weather(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Погода"
