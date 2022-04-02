@@ -6,7 +6,7 @@ async def auto_read(client: Client, message: Message):
     await app.read_history(message.chat.id)
     message.continue_propagation()
 
-@app.on_message(filters.command("autoread", prefixes=".") & filters.me)
+@app.on_message(filters.command("autoread", prefixes=prefix) & filters.me)
 async def add_to_auto_read(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Авточтение"
