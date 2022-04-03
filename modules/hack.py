@@ -1,10 +1,10 @@
-@app.on_message(filters.command("hack", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("hack", prefixes=prefix) & filters.me)
 
 async def hack(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда hack"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     perc = 0
     while(perc < 100):
@@ -31,3 +31,6 @@ async def hack(client: Client, message: Message):
     await asyncio.sleep(1)
     text = "🐓Нашли файлы что ты петух!"
     await message.edit(text)
+
+module_list['Pentagon'] = f'{prefix}hack'
+file_list['Bomber'] = 'bomber.py'
