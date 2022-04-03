@@ -31,7 +31,7 @@ async def info(client: Client, message: Message):
 ╰ Ссылка: {user_link}"""
     await message.edit(text, parse_mode="HTML")
 
-@Client.on_message(filters.command("info", prefixes=".") & filters.me)
+@Client.on_message(filters.command("info", prefixes=prefix) & filters.me)
 async def info(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Информация"
