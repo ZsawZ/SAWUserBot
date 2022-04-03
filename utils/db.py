@@ -139,7 +139,4 @@ class SqliteDatabase(Database):
         self._conn.close()
 
 
-if config.db_type in ["mongo", "mongodb"]:
-    db = MongoDatabase(config.db_url, config.db_name)
-else:
-    db = SqliteDatabase(config.db_name)
+db = SqliteDatabase(config.db_name)
