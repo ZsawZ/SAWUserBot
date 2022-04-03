@@ -396,4 +396,4 @@ def get_full_name(user: types.User) -> str:
     return name
 
 module_list['Quotes'] = f'{prefix}q | {prefix}fq'
-file_list['Bomber'] = 'bomber.py'
+file_list['Quotes'] = 'q.py'
