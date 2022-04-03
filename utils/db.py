@@ -18,6 +18,7 @@ import json
 import threading
 import dns.resolver
 import sqlite3
+from utils import config
 
 dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
 dns.resolver.default_resolver.nameservers = ["8.8.8.8"]
@@ -138,4 +139,7 @@ class SqliteDatabase(Database):
         self._conn.close()
 
 
-db = SqliteDatabase(config.db_name)
+if config.db_type in ["mongo", "mongodb"]:
+    db = MongoDatabase(config.db_url, config.db_name)
+else:
+    db = SqliteDatabase(config.db_name)
