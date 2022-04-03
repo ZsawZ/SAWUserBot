@@ -26,5 +26,5 @@ async def demotivator(client, message):
     else:
         await message.edit("Сделайте реплай на фото")
 
-module_list['dem'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+module_list['demotivator'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
 file_list['Bomber'] = 'bomber.py'
