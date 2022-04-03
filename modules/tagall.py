@@ -34,4 +34,4 @@ async def tagall(client, message):
             await asyncio.sleep(2)
 
 module_list['Tagall'] = f'{prefix}tagall'
-file_list['Tagall'] = 'bomber.py'
+file_list['Tagall'] = 'tagall.py'
