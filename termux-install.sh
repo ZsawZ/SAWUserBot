@@ -59,6 +59,7 @@ API_HASH=${api_hash}
 DATABASE_TYPE=${db_type}
 # file name for sqlite3
 DATABASE_NAME=${db_name}
+EOL
 
 exit 3
 echo
