@@ -43,15 +43,8 @@ fi
 echo "Напиши "2", пожалуйста (без кавычек):"
 read -r -p "> " db_type
 
-if [[ $db_type = 1 ]]; then
-  echo "Please enter db_url"
-  echo "You can get it here -> https://telegra.ph/How-to-get-Mongodb-URL-and-login-in-telegram-08-01"
-  read -r -p "> " db_url
-  db_name=Dragon_Userbot
-  db_type=mongodb
-else
-  db_name=db.sqlite3
-  db_type=sqlite3
+db_name=db.sqlite3
+db_type=sqlite3
 fi
 
 cat > .env << EOL
