@@ -15,5 +15,5 @@ async def ladder(client: Client, message: Message):
     ot = "\n".join(output)
     await message.edit(ot)
 
-module_list['Ladder'] = f'{prefix}ladder | {'
-file_list['Bomber'] = 'bomber.py'
+module_list['Ladder'] = f'{prefix}ladder'
+file_list['Ladder'] = 'bomber.py'
