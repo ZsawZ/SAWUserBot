@@ -21,7 +21,7 @@ else
 fi
 
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
-  echo "Похоже, что SAWUserBot уже установлен. В"
+  echo "Похоже, что SAWUserBot уже установлен. Выход..."
   exit
 fi
 
