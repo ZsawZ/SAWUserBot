@@ -2,11 +2,11 @@ lang_code = os.environ.get("lang_code", "ru")
 
 
 
-@app.on_message(filters.command("voice", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("voice", prefixes=prefix) & filters.me)
 async def voice(client, message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Текст в голосовое"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if len(message.text.split()) == 1:
         await message.edit(bantuan)
@@ -23,3 +23,6 @@ async def voice(client, message):
         await client.send_voice(message.chat.id, voice="voice.mp3")
     await client.send_chat_action(message.chat.id, action="cancel")
     os.remove("voice.mp3")
+
+module_list['Text to voice'] = f'{prefix}voice | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
