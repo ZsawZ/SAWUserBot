@@ -481,5 +481,5 @@ async def invite(client, message):
     except Exception as e:
         await message.edit(f"{e}")
 
-module['Administrator'] = f'{prefix}leave | {prefix}ban | {prefix}unban | {prefix}mute | {prefix}unmute | {prefix}invite | {prefix}pin | {prefix}unpin | {prefix}admin | {prefix}unadmin | {prefix}kick'
+module_list['Administrator'] = f'{prefix}leave | {prefix}ban | {prefix}unban | {prefix}mute | {prefix}unmute | {prefix}invite | {prefix}pin | {prefix}unpin | {prefix}admin | {prefix}unadmin | {prefix}kick'
 file_list['Administrator'] = 'admin_commands.py'
