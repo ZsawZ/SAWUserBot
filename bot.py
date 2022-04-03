@@ -1730,7 +1730,6 @@ async def demotivator(client, message):
         await client.send_photo(
             chat_id="memegeneration_bot",
             photo=message.reply_to_message.photo.file_id,
-            caption=capt
         )
         photo = False
  
