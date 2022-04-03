@@ -33,7 +33,18 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
-import subprocess
+
+from utils.db import db
+from utils.scripts import text, format_exc, with_reply
+from utils.misc import modules_help, prefix
+
+
+db_cache: dict = db.get_collection("core.ats")
+
+
+def update_cache():
+    db_cache.clear()
+    db_cache.update(db.get_collection("core.ats"))
 
 logo = """\033[31m
 ██████████████████████████████████████████████████████
