@@ -27,5 +27,5 @@ async def purge(client: Client, message: Message):
         else:
                 await message.edit("<i>А где реплай?</i>")
 
-module_list['Purge'] = f'{prefix}purge | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Purge'] = f'{prefix}purge'
+file_list['Purge'] = 'purge.py'
