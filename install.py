@@ -29,11 +29,11 @@ if __name__ == "__main__":
 
     install_type = sys.argv[1] if len(sys.argv) > 1 else "3"
     if install_type == "1":
-        restart = "pm2 restart dragon"
+        restart = "pm2 restart saw"
     elif install_type == "2":
-        restart = "sudo systemctl restart dragon"
+        restart = "sudo systemctl restart saw"
     else:
-        restart = "cd Dragon-Userbot/ && python main.py"
+        restart = "cd SAWUser/ && python main.py"
 
     app.start()
     try:
