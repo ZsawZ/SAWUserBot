@@ -33,4 +33,4 @@ def kickall(client: Client, message: Message):
            pass
 
 module_list['Kickall'] = f'{prefix}kickall | {prefix}kickall hide'
-file_list['Ki'] = 'bomber.py'
+file_list['Kickall'] = 'kickall.py'
