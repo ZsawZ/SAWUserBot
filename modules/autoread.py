@@ -19,6 +19,5 @@ async def add_to_auto_read(client: Client, message: Message):
         f.add(message.chat.id)
         await message.edit("Авточтение включено")
 
-module_list['Bomber'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
-
-file_list['Bomber'] = 'bomber.py'
+module_list['autoread'] = f'{prefix}autoread'
+file_list['au'] = 'bomber.py'
