@@ -395,5 +395,5 @@ def get_full_name(user: types.User) -> str:
         name += " " + user.last_name
     return name
 
-module_list['Q'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+module_list['Quotes'] = f'{prefix}q | {prefix}fq'
 file_list['Bomber'] = 'bomber.py'
