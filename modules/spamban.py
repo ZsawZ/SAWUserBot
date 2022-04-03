@@ -15,4 +15,4 @@ async def spamban(client: Client, message: Message):
     await Client.forward_messages(message.chat.id, "spamBot", iii[0].message_id)
 
 module_list['Spamban'] = f'{prefix}spamban'
-file_list['Bomber'] = 'bomber.py'
+file_list['Spamban'] = 'spamban.py'
