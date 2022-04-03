@@ -61,6 +61,6 @@ python3 install.py 3 || exit 3
 
 echo
 echo "============================"
-echo "Great! Dragon-Userbot installed successfully!"
-echo "Start with: \"python3 main.py\""
+echo "Отлично! SAWUserBot установлен yспешно!"
+echo "Зап""
 echo "============================"
