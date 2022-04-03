@@ -33,7 +33,7 @@ if __name__ == "__main__":
     elif install_type == "2":
         restart = "sudo systemctl restart saw"
     else:
-        restart = "cd SAWUser/ && python main.py"
+        restart = "cd SAWUserBot/ && python bot.py"
 
     app.start()
     try:
