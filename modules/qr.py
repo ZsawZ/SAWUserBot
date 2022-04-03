@@ -29,4 +29,4 @@ async def qr_cmd(client: Client, message: Message):
             )
 
 module_list['QRcode'] = f'{prefix}qr'
-file_list['QR'] = 'bomber.py'
+file_list['QRcode'] = 'qr.py'
