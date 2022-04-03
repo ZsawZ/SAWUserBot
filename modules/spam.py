@@ -1,4 +1,4 @@
-@app.on_message(filters.command("spam", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("spam", prefixes=prefix) & filters.me)
 
 async def spam(client: Client, message: Message):
 
@@ -12,8 +12,11 @@ async def spam(client: Client, message: Message):
 
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Запущен спам"
-        await app.send_message("sawUSERBOT_LOGGERbot", log)
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
         for _ in range(count):
-                await app.send_message(message.chat.id, text)
+                await Client.send_message(message.chat.id, text)
                 await asyncio.sleep(0.01)
+
+module_list['Spam'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
