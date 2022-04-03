@@ -24,5 +24,5 @@ async def switch(client: Client, message: Message):
         text = str.translate(text, change)
         await message.edit(text)
 
-module_list['Cl'] = f'{prefix}cl | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Cl'] = f'{prefix}cl'
+file_list['Cl'] = 'cl.py'
