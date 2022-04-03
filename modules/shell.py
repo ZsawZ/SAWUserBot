@@ -32,5 +32,5 @@ async def shell(_, message: Message):
     await message.edit(text)
     cmd_obj.kill()
 
-module_list['sh'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Shell'] = f'{prefix}shell'
+file_list['Shell'] = 'shell.py'
