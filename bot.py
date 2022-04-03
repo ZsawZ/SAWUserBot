@@ -39,13 +39,6 @@ from utils.scripts import text, format_exc, with_reply
 from utils.misc import modules_help, prefix
 
 
-db_cache: dict = db.get_collection("core.ats")
-
-
-def update_cache():
-    db_cache.clear()
-    db_cache.update(db.get_collection("core.ats"))
-
 logo = """\033[31m
 ██████████████████████████████████████████████████████
 
@@ -91,6 +84,8 @@ logo = """\033[31m
 Telegram Канал - @SAWuser_bot
 Помощь - @saw_andr
 Версия 1.9.3 [СТАБИЛЬНАЯ]
+
+
 
 Логи:"""
 print(logo)
