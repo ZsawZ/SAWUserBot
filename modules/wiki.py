@@ -1,10 +1,10 @@
-@app.on_message(filters.command("wiki", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("wiki", prefixes=prefix) & filters.me)
 
 async def wiki(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Поиск в википедии"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     lang = message.command[1]
     user_request = " ".join(message.command[2:])
@@ -27,3 +27,6 @@ async def wiki(client: Client, message: Message):
 <code>{user_request}</code>
 <b>Result:</b>
 <code>{exc}</code>""")
+
+module_list['Wikipedia'] = f'{prefix}wiki | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
