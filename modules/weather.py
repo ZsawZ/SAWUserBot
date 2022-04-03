@@ -15,11 +15,11 @@ def get_pic(city):
             pic.write(block)
         return file_name
 
-@app.on_message(filters.command("weather", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("weather", prefixes=prefix) & filters.me)
 async def weather(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Погода"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     city = message.command[1]
     await message.edit("```Загрузка...```")
@@ -27,3 +27,6 @@ async def weather(client: Client, message: Message):
     await message.edit(f"```City: {r.text}```")
     await client.send_photo(chat_id=message.chat.id, photo=get_pic(city), reply_to_message_id=message.message_id)
     os.remove(f"{city}.png")
+
+module_list['Weather'] = f'{prefix}weather | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
