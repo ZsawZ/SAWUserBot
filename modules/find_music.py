@@ -59,4 +59,4 @@ async def send_music(client: Client, message: Message):
         await message.delete()
 
 module_list['FindMusic'] = f'{prefix}m'
-file_list['Find'] = 'bomber.py'
+file_list['FindMusic'] = 'find_music.py'
