@@ -65,5 +65,5 @@ exit 3
 echo
 echo "============================"
 echo "Отлично! SAWUserBot установлен yспешно!"
-echo "Запустить: python bot.py""
+echo "Запустить: python bot.py"
 echo "============================"
