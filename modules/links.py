@@ -13,11 +13,11 @@ async def link_short(link: str):
         ) as resp:
             return await resp.json()
 
-@app.on_message(filters.command("short", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("short", prefixes=prefix) & filters.me)
 async def shorten_link_command(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Сокращенная ссылка"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.reply_to_message:
          link = message.reply_to_message.text
@@ -28,3 +28,6 @@ async def shorten_link_command(client: Client, message: Message):
             return await message.delete()
     output = (await link_short(link))["data"]
     await message.edit(f"Сокращенная ссылка: {output['link']}")
+
+module_list['LinkShor'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
