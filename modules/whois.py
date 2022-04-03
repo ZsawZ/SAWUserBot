@@ -1,10 +1,10 @@
-@app.on_message(filters.command("infofull", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("infofull", prefixes=prefix) & filters.me)
 
 async def info(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Полная информация"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.reply_to_message:
         username = message.reply_to_message.from_user.username
@@ -31,11 +31,11 @@ async def info(client: Client, message: Message):
 ╰ Ссылка: {user_link}"""
     await message.edit(text, parse_mode="HTML")
 
-@app.on_message(filters.command("info", prefixes=".") & filters.me)
+@Client.on_message(filters.command("info", prefixes=".") & filters.me)
 async def info(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Информация"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.reply_to_message:
         username = message.reply_to_message.from_user.username
@@ -55,3 +55,6 @@ async def info(client: Client, message: Message):
 ┃ Юзернейм: @{username}
 ╰ Ссылка: {user_link}"""
     await message.edit(text, parse_mode="HTML")
+
+module_list['Whois'] = f'{prefix}info | {prefix}infofull | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
