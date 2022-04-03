@@ -40,9 +40,7 @@ else
   read -r -p "API_HASH > " api_hash
 fi
 
-echo "Напиши "2", пожа:"
-echo "[1] MongoDB (your url)"
-echo "[2] Sqlite"
+echo "Напиши "2", пожалуйста (без кавычек):"
 read -r -p "> " db_type
 
 if [[ $db_type = 1 ]]; then
