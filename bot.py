@@ -117,6 +117,12 @@ with app:
              except:
                 pass
 
+db_cache: dict = db.get_collection("core.ats")
+
+
+def update_cache():
+    db_cache.clear()
+    db_cache.update(db.get_collection("core.ats"))
 
 # Помощь | Инфа про Юзербота
 @app.on_message(filters.command("help", prefixes=".") & filters.me)
