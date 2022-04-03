@@ -23,7 +23,6 @@ fi
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
   echo "Похоже, что SAWUserBot уже установлен. Выход..."
   exit
-fi
 
 python3 -m pip install -U -r requirements.txt || exit 2
 
