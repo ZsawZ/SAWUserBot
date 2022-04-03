@@ -35,7 +35,7 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
-from utils import db
+from utils.db import db
 from utils.scripts import text, format_exc, with_reply
 from utils.misc import modules_help, prefix
 
