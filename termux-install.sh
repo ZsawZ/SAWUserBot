@@ -12,7 +12,7 @@ python3 -m pip install -U pip
 LDFLAGS="-L${PREFIX}/lib/" CFLAGS="-I${PREFIX}/include/" pip3 install --upgrade wheel pillow
 
 if [[ -d "SAWUserBot" ]]; then
-  cd Dragon-Userbot
+  cd SAWUserBot
 elif [[ -f ".env.dist" ]] && [[ -f "main.py" ]] && [[ -d "modules" ]]; then
   :
 else
