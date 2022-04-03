@@ -40,7 +40,7 @@ else
   read -r -p "API_HASH > " api_hash
 fi
 
-echo "Choose database type:"
+echo "Напиши "2", пожа:"
 echo "[1] MongoDB (your url)"
 echo "[2] Sqlite"
 read -r -p "> " db_type
