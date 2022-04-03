@@ -1,4 +1,4 @@
-@app.on_message(filters.text & filters.incoming & filters.regex("^\-$") & filters.reply)
+@Client.on_message(filters.text & filters.incoming & filters.regex("^\-$") & filters.reply)
 
 async def repMinus(client: Client, message: Message):
 
@@ -23,11 +23,11 @@ async def repMinus(client: Client, message: Message):
                 text = "💔 Вы понизили мою репутацию 💔\n🔝 Репутация " + str(repo) + " 🔝"
                 await message.reply_text(text)
             log = l0g + "💔 Вы понизили мою репутацию 💔\n🔝 Репутация " + str(repo) + " 🔝"
-            await app.send_message("sawUSERBOT_LOGGERbot", log)
+            await Client.send_message("sawUSERBOT_LOGGERbot", log)
     except:
         pass
 
-@app.on_message(filters.text & filters.incoming & filters.regex("^\+$") & filters.reply)
+@Client.on_message(filters.text & filters.incoming & filters.regex("^\+$") & filters.reply)
 async def repPlus(client: Client, message: Message):
     try:
         if message.reply_to_message.from_user.is_self:
@@ -50,11 +50,11 @@ async def repPlus(client: Client, message: Message):
                 text = "❤️ Вы повысили мою репутацию ❤️\n🔝 Репутация " + str(repo) + " 🔝"
                 await message.reply_text(text)
             log = l0g + "❤️ Вы повысили мою репутацию ❤️\n🔝 Репутация " + str(repo) + " 🔝"
-            await app.send_message("sawUSERBOT_LOGGERbot", log)
+            await Client.send_message("sawUSERBOT_LOGGERbot", log)
     except:
         pass
 
-@app.on_message(filters.command("rep", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("rep", prefixes=prefix) & filters.me)
 async def repNakrutka(client: Client, message: Message):
     try:
         with open("rep.txt", "r+") as f:
@@ -73,6 +73,9 @@ async def repNakrutka(client: Client, message: Message):
 
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Накручена репутация\n\n❤️ Репутация изменена ❤️\n🔝 Репутация " + str(repo) + " 🔝"
-        await app.send_message("sawUSERBOT_LOGGERbot", log)
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
     except:
         pass
+
+module_list['Reputation'] = f'{prefix}rep'
+file_list['Re'] = 'bomber.py'
