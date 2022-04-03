@@ -45,9 +45,6 @@ wikipedia
 win32-setctime
 yarl
 youtube-dl
-pyrogram
-
-tgcrypto
 wheel
 pygments
 ffmpeg-python
