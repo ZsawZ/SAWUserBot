@@ -56,5 +56,5 @@ async def info(client: Client, message: Message):
 ╰ Ссылка: {user_link}"""
     await message.edit(text, parse_mode="HTML")
 
-module_list['Whois'] = f'{prefix}info | {prefix}infofull | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Whois'] = f'{prefix}info | {prefix}infofull'
+file_list['Whois'] = 'whois.py'
