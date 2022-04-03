@@ -31,7 +31,7 @@ async def CheckAdmin(message: Message):
     creator = "creator"
     ranks = [admin, creator]
 
-    SELF = await app.get_chat_member(
+    SELF = await Client.get_chat_member(
         chat_id=message.chat.id, user_id=message.from_user.id
     )
 
@@ -48,17 +48,17 @@ async def CheckAdmin(message: Message):
             await asyncio.sleep(2)
             await message.delete()
 
-@app.on_message(filters.command("leave", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("leave", prefixes=prefix) & filters.me)
 async def leave(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Выход с чата"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     m = await message.edit("<code>Всем пока... [Пользователь вышел с чата]</code>")
     await asyncio.sleep(2)
     await client.leave_chat(chat_id=message.chat.id)
 
-@app.on_message(filters.command("ban", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("ban", prefixes=prefix) & filters.me)
 async def ban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
@@ -166,7 +166,7 @@ async def ban_command(client: Client, message: Message):
     else:
         await message.edit("<b>Unsupported</b>")
 
-@app.on_message(filters.command("unban", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("unban", prefixes=prefix) & filters.me)
 async def unban_command(client: Client, message: Message):
     cause = text(message)
     if message.reply_to_message and message.chat.type not in ["private", "channel"]:
@@ -237,11 +237,11 @@ mute_permission = ChatPermissions(
     can_pin_messages = False,
 )
 
-@app.on_message(filters.command("mute", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("mute", prefixes=prefix) & filters.me)
 async def mute_hammer(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на мут"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if await CheckAdmin(message) is True:
         reply = message.reply_to_message
@@ -253,8 +253,8 @@ async def mute_hammer(client: Client, message: Message):
                 await message.edit("**Я должен кого то замутить?**")
                 return
         try:
-            get_user = await app.get_users(user)
-            await app.restrict_chat_member(
+            get_user = await Client.get_users(user)
+            await Client.restrict_chat_member(
                 chat_id=message.chat.id,
                 user_id=get_user.id,
                 permissions=mute_permission,
@@ -275,11 +275,11 @@ unmute_permissions = ChatPermissions(
     can_pin_messages=False,
 )
 
-@app.on_message(filters.command("unmute", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("unmute", prefixes=prefix) & filters.me)
 async def unmute(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на размут"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if await CheckAdmin(message) is True:
         reply = message.reply_to_message
@@ -291,8 +291,8 @@ async def unmute(client: Client, message: Message):
                 await message.edit("**Я должен кого то размутить?**")
                 return
         try:
-            get_user = await app.get_users(user)
-            await app.restrict_chat_member(
+            get_user = await Client.get_users(user)
+            await Client.restrict_chat_member(
                 chat_id=message.chat.id,
                 user_id=get_user.id,
                 permissions=unmute_permissions,
@@ -303,11 +303,11 @@ async def unmute(client: Client, message: Message):
     else:
         await message.edit("**Я админ?**")
 
-@app.on_message(filters.command("kick", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("kick", prefixes=prefix) & filters.me)
 async def kick_user(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на кик участника"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if await CheckAdmin(message) is True:
         reply = message.reply_to_message
@@ -319,8 +319,8 @@ async def kick_user(client: Client, message: Message):
                 await message.edit("**Я должен кого то кикнуть?**")
                 return
         try:
-            get_user = await app.get_users(user)
-            await app.kick_chat_member(
+            get_user = await Client.get_users(user)
+            await Client.kick_chat_member(
                 chat_id=message.chat.id,
                 user_id=get_user.id,
             )
@@ -330,18 +330,18 @@ async def kick_user(client: Client, message: Message):
     else:
         await message.edit("**Я админ?**")
 
-@app.on_message(filters.command("pin", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("pin", prefixes=prefix) & filters.me)
 async def pin_message(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на закрепление сообщения"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.chat.type in ["group", "supergroup"]:
-        admins = await app.get_chat_members(
+        admins = await Client.get_chat_members(
             message.chat.id, filter=ChatMemberFilters.ADMINISTRATORS
         )
         admin_ids = [user.user.id for user in admins]
-        me = await app.get_me()
+        me = await Client.get_me()
 
         if me.id in admin_ids:
             if message.reply_to_message:
@@ -354,7 +354,7 @@ async def pin_message(client: Client, message: Message):
                 ]:
                     disable_notification = False
 
-                await app.pin_chat_message(
+                await Client.pin_chat_message(
                     message.chat.id,
                     message.reply_to_message.message_id,
                     disable_notification=disable_notification,
@@ -371,11 +371,11 @@ async def pin_message(client: Client, message: Message):
     await asyncio.sleep(3)
     await message.delete()
 
-@app.on_message(filters.command("unpin", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("unpin", prefixes=prefix) & filters.me)
 async def pin(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Сообщение закрепленно"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     try:
         message_id = message.reply_to_message.message_id
@@ -384,11 +384,11 @@ async def pin(client: Client, message: Message):
     except:
         await message.edit("<b>Сделайте реплай сообщению</b>")
 
-@app.on_message(filters.command("admin", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("admin", prefixes=prefix) & filters.me)
 async def promote(client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Выдан статус админа одному из участников"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if await CheckAdmin(message) is False:
         await message.edit("**Я не админ.**")
@@ -406,9 +406,9 @@ async def promote(client, message: Message):
         user = args[0]
         if len(args) > 1:
             title = " ".join(args[1:])
-    get_user = await app.get_users(user)
+    get_user = await Client.get_users(user)
     try:
-        await app.promote_chat_member(message.chat.id, user, can_pin_messages=True)
+        await Client.promote_chat_member(message.chat.id, user, can_pin_messages=True)
         if title == "":
             title = "Админ"
         await message.edit(
@@ -418,15 +418,15 @@ async def promote(client, message: Message):
         await message.edit(f"{e}")
     if title:
         try:
-            await app.set_administrator_title(message.chat.id, user, title)
+            await Client.set_administrator_title(message.chat.id, user, title)
         except:
             pass
 
-@app.on_message(filters.command("unadmin", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("unadmin", prefixes=prefix) & filters.me)
 async def demote(client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Отобран статус админа одному из участников"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if await CheckAdmin(message) is False:
         await message.edit("**Я не админ**")
@@ -439,9 +439,9 @@ async def demote(client, message: Message):
         if not user:
             await message.edit("**Я могу разжаловать админа?**")
             return
-    get_user = await app.get_users(user)
+    get_user = await Client.get_users(user)
     try:
-        await app.promote_chat_member(
+        await Client.promote_chat_member(
             message.chat.id,
             user,
             is_anonymous=False,
@@ -460,11 +460,11 @@ async def demote(client, message: Message):
     except Exception as e:
         await message.edit(f"{e}")
 
-@app.on_message(filters.command("invite", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("invite", prefixes=prefix) & filters.me)
 async def invite(client, message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Участник приглашён"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     reply = message.reply_to_message
     if reply:
@@ -474,9 +474,9 @@ async def invite(client, message):
         if not user:
             await message.edit("**Я должен кого то пригласить?**")
             return
-    get_user = await app.get_users(user)
+    get_user = await Client.get_users(user)
     try:
-        await app.add_chat_members(message.chat.id, get_user.id)
+        await Client.add_chat_members(message.chat.id, get_user.id)
         await message.edit(f"**Пользователь {get_user.first_name} Был приглашён в этот чат!**")
     except Exception as e:
         await message.edit(f"{e}")
