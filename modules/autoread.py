@@ -20,4 +20,4 @@ async def add_to_auto_read(client: Client, message: Message):
         await message.edit("Авточтение включено")
 
 module_list['autoread'] = f'{prefix}autoread'
-file_list['au'] = 'bomber.py'
+file_list['auto_read'] = 'bomber.py'
