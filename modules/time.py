@@ -1,4 +1,4 @@
-@app.on_message(filters.command("time", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("time", prefixes=prefix) & filters.me)
 
 async def time(client: Client, message: Message):
 
