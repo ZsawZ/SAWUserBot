@@ -41,8 +41,8 @@ if __name__ == "__main__":
             "me",
             f"<b>[{datetime.datetime.now()}] Dragon-Userbot launched! \n"
             "Канал: @SAWUser_bot\n"
-            "Чат:
-            f"For restart, enter:</b>\n"
+            "Чат: @sawteam0\n"
+            f"For res:</b>\n"
             f"<code>{restart}</code>",
         )
     except:
