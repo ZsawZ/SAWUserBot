@@ -29,5 +29,5 @@ async def shorten_link_command(client: Client, message: Message):
     output = (await link_short(link))["data"]
     await message.edit(f"Сокращенная ссылка: {output['link']}")
 
-module_list['LinkShor'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+module_list['LinkShorter'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
 file_list['Bomber'] = 'bomber.py'
