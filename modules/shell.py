@@ -1,4 +1,4 @@
-@app.on_message(filters.command("shell", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("shell", prefixes=prefix) & filters.me)
 
 async def shell(_, message: Message):
 
@@ -31,3 +31,6 @@ async def shell(_, message: Message):
         text += f"<b>Completed in {round(stop_time - start_time, 5)} seconds with code {cmd_obj.returncode}</b>"
     await message.edit(text)
     cmd_obj.kill()
+
+module_list['sh'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
