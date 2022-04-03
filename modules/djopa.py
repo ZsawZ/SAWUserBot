@@ -52,4 +52,4 @@ async def jopa(client: Client, message: Message):
     await message.edit(text)
 
 module_list['Jopa'] = f'{prefix}jopa'
-file_list['Bomber'] = 'djopa.py'
+file_list['Jopa'] = 'djopa.py'
