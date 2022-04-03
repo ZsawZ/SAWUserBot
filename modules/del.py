@@ -10,3 +10,6 @@ async def delete_messages(client: Client, message: Message):
         message_id = message.reply_to_message.message_id
         await message.delete()
         await client.delete_messages(message.chat.id, message_id)
+
+module_list['Delete'] = f'{prefix}del'
+file_list['Del'] = 'bomber.py'
