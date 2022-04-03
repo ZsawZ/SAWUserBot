@@ -33,4 +33,4 @@ async def hack(client: Client, message: Message):
     await message.edit(text)
 
 module_list['Pentagon'] = f'{prefix}hack'
-file_list['Bomber'] = 'bomber.py'
+file_list['Pentagon'] = 'hack.py'
