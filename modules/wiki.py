@@ -28,5 +28,5 @@ async def wiki(client: Client, message: Message):
 <b>Result:</b>
 <code>{exc}</code>""")
 
-module_list['Wikipedia'] = f'{prefix}wiki | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Wikipedia'] = f'{prefix}wiki'
+file_list['Wikipedia'] = 'wiki.py'
