@@ -42,7 +42,7 @@ if __name__ == "__main__":
             f"<b>[{datetime.datetime.now()}] Dragon-Userbot launched! \n"
             "Канал: @SAWUser_bot\n"
             "Чат: @sawteam0\n"
-            f"For res:</b>\n"
+            f"Для перезагрузки напишите:</b>\n"
             f"<code>{restart}</code>",
         )
     except:
