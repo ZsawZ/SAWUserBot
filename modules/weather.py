@@ -28,5 +28,5 @@ async def weather(client: Client, message: Message):
     await client.send_photo(chat_id=message.chat.id, photo=get_pic(city), reply_to_message_id=message.message_id)
     os.remove(f"{city}.png")
 
-module_list['Weather'] = f'{prefix}weather | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Weather'] = f'{prefix}weather'
+file_list['Weather'] = 'weather.py'
