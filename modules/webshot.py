@@ -1,4 +1,4 @@
-@app.on_message(filters.command("webshot", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("webshot", prefixes=prefix) & filters.me)
 
 async def webshot(client, message):
 
@@ -14,7 +14,10 @@ async def webshot(client, message):
 
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Скриншот сайта"
-        await app.send_message("sawUSERBOT_LOGGERbot", log)
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     except:
         await message.edit("<i>Неизвестный сайт.</i>")
+
+module_list['Webshot'] = f'{prefix}webshot | {prefix}sbo'
+file_list['Bomber'] = 'bomber.py'
