@@ -19,5 +19,5 @@ async def webshot(client, message):
     except:
         await message.edit("<i>Неизвестный сайт.</i>")
 
-module_list['Webshot'] = f'{prefix}webshot | {prefix}sbo'
-file_list['Bomber'] = 'bomber.py'
+module_list['Webshot'] = f'{prefix}webshot'
+file_list['Webshot'] = 'webshot.py'
