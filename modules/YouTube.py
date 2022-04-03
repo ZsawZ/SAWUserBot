@@ -1,4 +1,4 @@
-@app.on_message(filters.command("yt", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("yt", prefixes=prefix) & filters.me)
 
 async def yt(client, message):
 
@@ -6,7 +6,7 @@ async def yt(client, message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на скачивания видео"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     await message.edit("Скачивание видео...")
     ydl_opts = { "outtmpl": "video.mp4", }
@@ -17,12 +17,12 @@ async def yt(client, message):
     await message.delete()
     os.remove("video.mp4")
 
-@app.on_message(filters.command("myt", prefixes=".") & filters.me)
+@Client.on_message(filters.command("myt", prefixes=prefix) & filters.me)
 async def myt(client, message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запрос на скачивание звука"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     myth = "youtube-dl -f 140 " + message.command[1] + " -o music.m4a"
     await message.edit("Скачивание аудиодорожки...")
@@ -31,3 +31,6 @@ async def myt(client, message):
     await client.send_audio(chat_id=message.chat.id, audio="music.m4a", caption="Звук с видео: " + message.command[1])
     await message.delete()
     os.remove("music.m4a")
+
+module_list['YouTube'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
