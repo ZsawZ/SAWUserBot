@@ -56,9 +56,6 @@ DATABASE_TYPE=${db_type}
 # file name for sqlite3
 DATABASE_NAME=${db_name}
 
-
-python3 install.py 3 || exit 3
-
 echo
 echo "============================"
 echo "Отлично! SAWUserBot установлен yспешно!"
