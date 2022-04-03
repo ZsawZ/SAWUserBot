@@ -62,6 +62,7 @@ DATABASE_NAME=${db_name}
 EOL
 
 python install.py 3 || exit 3
+
 echo
 echo "============================"
 echo "Отлично! SAWUserBot установлен yспешно!"
