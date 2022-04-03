@@ -78,4 +78,4 @@ async def repNakrutka(client: Client, message: Message):
         pass
 
 module_list['Reputation'] = f'{prefix}rep'
-file_list['Re'] = 'bomber.py'
+file_list['Reputation'] = 'rep.py'
