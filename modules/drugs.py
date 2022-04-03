@@ -1,10 +1,10 @@
-@app.on_message(filters.command("drugs", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("drugs", prefixes=prefix) & filters.me)
 
 async def drugs(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда drugs"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     perc = 0
     result = 0
@@ -36,3 +36,6 @@ async def drugs(client: Client, message: Message):
     if result == 4:
         text = "😌Вы оформили вкид, Вам понравилось)😌"
         await message.edit(str(text))
+
+module_list['Drugs'] = f'{prefix}drugs'
+file_list['Bomber'] = 'bomber.py'
