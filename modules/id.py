@@ -1,11 +1,11 @@
-@app.on_message(filters.command("id", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("id", prefixes=prefix) & filters.me)
 
 async def id(client: Client, message: Message):
 
     now = datetime.datetime.now()
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда id"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     if message.reply_to_message is None:
         await message.edit(f"Айди: {message.chat.id}")
