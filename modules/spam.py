@@ -18,5 +18,5 @@ async def spam(client: Client, message: Message):
                 await Client.send_message(message.chat.id, text)
                 await asyncio.sleep(0.01)
 
-module_list['Spam'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Spam'] = f'{prefix}spam'
+file_list['Spam'] = 'spam.py'
