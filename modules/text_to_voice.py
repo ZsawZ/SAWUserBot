@@ -24,5 +24,5 @@ async def voice(client, message):
     await client.send_chat_action(message.chat.id, action="cancel")
     os.remove("voice.mp3")
 
-module_list['Text to voice'] = f'{prefix}voice | {prefix}sbomber | {prefix}bbomber'
-file_list['Bomber'] = 'bomber.py'
+module_list['Text to voice'] = f'{prefix}voice'
+file_list['Text to voice'] = 'text_to_voice.py'
