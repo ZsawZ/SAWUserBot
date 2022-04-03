@@ -1,4 +1,4 @@
-@app.on_message(filters.command("dem", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("dem", prefixes=prefix) & filters.me)
 
 async def demotivator(client, message):
 
@@ -25,3 +25,6 @@ async def demotivator(client, message):
                 await asyncio.sleep(2)
     else:
         await message.edit("Сделайте реплай на фото")
+
+module_list['dem'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+file_list['Bomber'] = 'bomber.py'
