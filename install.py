@@ -40,8 +40,8 @@ if __name__ == "__main__":
         app.send_message(
             "me",
             f"<b>[{datetime.datetime.now()}] Dragon-Userbot launched! \n"
-            "Channe: @Dragon_Userbot\n"
-            @
+            "Канал: @SAWUser_bot\n"
+            "Чат:
             f"For restart, enter:</b>\n"
             f"<code>{restart}</code>",
         )
