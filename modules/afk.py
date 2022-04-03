@@ -43,5 +43,5 @@ async def unafk(client: Client, message: Message):
         await asyncio.sleep(3)
         await message.delete()
 
-module_list['Afk'] = f'{prefix}afk'
-file_list['Demotivator'] = 'dem.py'
+module_list['Afk'] = f'{prefix}afk | {prefix}unafk'
+file_list['Afk'] = 'dem.py'
