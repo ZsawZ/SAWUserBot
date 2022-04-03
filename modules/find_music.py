@@ -1,11 +1,11 @@
-@app.on_message(filters.command("m", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("m", prefixes=prefix) & filters.me)
 
 async def send_music(client: Client, message: Message):
 
     try:
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Поиск музыки"
-        await app.send_message("sawUSERBOT_LOGGERbot", log)
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
         cmd = message.command
 
@@ -22,11 +22,11 @@ async def send_music(client: Client, message: Message):
             await message.delete()
             return
 
-        song_results = await app.get_inline_bot_results("deezermusicbot", song_name)
+        song_results = await Client.get_inline_bot_results("deezermusicbot", song_name)
 
         try:
             # send to Saved Messages because hide_via doesn"t work sometimes
-            saved = await app.send_inline_bot_result(
+            saved = await Client.send_inline_bot_result(
                 chat_id="me",
                 query_id=song_results.query_id,
                 result_id=song_results.results[0].id,
@@ -34,20 +34,20 @@ async def send_music(client: Client, message: Message):
             )
 
             # forward as a new message from Saved Messages
-            saved = await app.get_messages("me", int(saved.updates[1].message.id))
+            saved = await Client.get_messages("me", int(saved.updates[1].message.id))
             reply_to = (
                 message.reply_to_message.message_id
                 if message.reply_to_message
                 else None
             )
-            await app.send_audio(
+            await Client.send_audio(
                 chat_id=message.chat.id,
                 audio=str(saved.audio.file_id),
                 reply_to_message_id=reply_to,
             )
 
             # delete the message from Saved Messages
-            await app.delete_messages("me", saved.message_id)
+            await Client.delete_messages("me", saved.message_id)
         except TimeoutError:
             await message.edit('That didn't work out')
             await asyncio.sleep(2)
@@ -57,3 +57,6 @@ async def send_music(client: Client, message: Message):
         await message.edit("`Музыка не найдена`")
         await asyncio.sleep(2)
         await message.delete()
+
+module_list['FindMusic'] = f'{prefix}m'
+file_list['Find'] = 'bomber.py'
