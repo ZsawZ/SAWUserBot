@@ -1,8 +1,8 @@
-@app.on_message(filters.command("hide", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("hide", prefixes=prefix) & filters.me)
 async def hide(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Скрытие текста"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     orig_text = message.text.split("." + "hide ", maxsplit=1)[1]
     text = orig_text
@@ -22,3 +22,6 @@ async def hide(client: Client, message: Message):
 
     await asyncio.sleep(1.25)
     await message.delete()
+
+module_list['Hider'] = f'{prefix}hide'
+file_list['Hider'] = 'hide.py'
