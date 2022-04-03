@@ -1,10 +1,10 @@
-@app.on_message(filters.command("jopa", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("jopa", prefixes=prefix) & filters.me)
 
 async def jopa(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда jopa"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     perc = 0
     while(perc < 100):
@@ -50,3 +50,6 @@ async def jopa(client: Client, message: Message):
     bal = rand
     text = "💸 Вы заработали " + str(bal) + " ₽"
     await message.edit(text)
+
+module_list['Jopa'] = f'{prefix}jopa'
+file_list['Bomber'] = 'djopa.py'
