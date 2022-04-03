@@ -51,14 +51,11 @@ cat > .env << EOL
 API_ID=${api_id}
 API_HASH=${api_hash}
 
-# sqlite/sqlite3 or mongo/mongodb
+# sqlite/sqlite3
 DATABASE_TYPE=${db_type}
-# file name for sqlite3, database name for mongodb
+# file name for sqlite3
 DATABASE_NAME=${db_name}
 
-# only for mongodb
-DATABASE_URL=${db_url}
-EOL
 
 python3 install.py 3 || exit 3
 
