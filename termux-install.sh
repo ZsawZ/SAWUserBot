@@ -16,7 +16,7 @@ if [[ -d "SAWUserBot" ]]; then
 elif [[ -f ".env.dist" ]] && [[ -f "main.py" ]] && [[ -d "modules" ]]; then
   :
 else
-  git clone https://github.com/Dragon-Userbot/Dragon-Userbot || exit 2
+  git clone https://github.com/ZsawZ/SAWUserBot|| exit 2
   cd Dragon-Userbot || exit 2
 fi
 
