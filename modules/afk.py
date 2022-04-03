@@ -42,3 +42,6 @@ async def unafk(client: Client, message: Message):
         await message.edit("<b>Я не был в АФК</b>")
         await asyncio.sleep(3)
         await message.delete()
+
+module_list['Afk'] = f'{prefix}afk'
+file_list['Demotivator'] = 'dem.py'
