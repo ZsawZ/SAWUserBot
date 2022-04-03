@@ -27,9 +27,7 @@ if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
 python3 -m pip install -U -r requirements.txt || exit 2
 
 echo
-echo "Enter API_ID and API_HASH"
-echo "You can get it here -> https://my.telegram.org/apps"
-echo "Leave empty to use defaults"
+echo "Просто нажми Enter"
 read -r -p "API_ID > " api_id
 
 if [[ $api_id = "" ]]; then
