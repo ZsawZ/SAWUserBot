@@ -38,4 +38,4 @@ async def drugs(client: Client, message: Message):
         await message.edit(str(text))
 
 module_list['Drugs'] = f'{prefix}drugs'
-file_list['Bomber'] = 'bomber.py'
+file_list['Drugs'] = 'drugs.py'
