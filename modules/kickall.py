@@ -1,10 +1,10 @@
-@app.on_message(filters.command("kickall hide", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("kickall hide", prefixes=prefix) & filters.me)
 
 def kickall(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Удалены участники"
-    app.send_message("sawUSERBOT_LOGGERbot", log)
+    Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     message.delete()
     num = 0
@@ -15,13 +15,13 @@ def kickall(client: Client, message: Message):
        except:
            pass
 
-@app.on_message(filters.command("kickall", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("kickall", prefixes=prefix) & filters.me)
 
 def kickall(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Удалены участники"
-    app.send_message("sawUSERBOT_LOGGERbot", log)
+    Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     message.edit("Вашим участникам конец)")
     num = 0
@@ -32,3 +32,5 @@ def kickall(client: Client, message: Message):
        except:
            pass
 
+module_list['Kickall'] = f'{prefix}kickall | {prefix}kickall hide'
+file_list['Ki'] = 'bomber.py'
