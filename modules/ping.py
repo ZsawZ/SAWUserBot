@@ -24,4 +24,4 @@ async def ping(client: Client, message: Message):
         await message.edit(f"<b>🏓 Понг\n📶</b> {round(ping)} мс\n⚠Качество соединения: Перепады связи⚠")
 
 module_list['Pinger'] = f'{prefix}ping'
-file_list['Pinger'] = 'bomber.py'
+file_list['Pinger'] = 'ping.py'
