@@ -11,7 +11,7 @@ apt install python3 git clang ffmpeg wget libjpeg-turbo libcrypt ndk-sysroot zli
 python3 -m pip install -U pip
 LDFLAGS="-L${PREFIX}/lib/" CFLAGS="-I${PREFIX}/include/" pip3 install --upgrade wheel pillow
 
-if [[ -d "Dragon-Userbot" ]]; then
+if [[ -d "SAWUserBot" ]]; then
   cd Dragon-Userbot
 elif [[ -f ".env.dist" ]] && [[ -f "main.py" ]] && [[ -d "modules" ]]; then
   :
@@ -21,7 +21,7 @@ else
 fi
 
 if [[ -f ".env" ]] && [[ -f "my_account.session" ]]; then
-  echo "It seems that Dragon-Userbot is already installed. Exiting..."
+  echo "Похоже,чх"
   exit
 fi
 
