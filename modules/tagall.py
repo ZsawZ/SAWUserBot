@@ -1,11 +1,11 @@
-@app.on_message(filters.command("tagall", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("tagall", prefixes=prefix) & filters.me)
 
 async def tagall(client, message):
 
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Отмечены все участники"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     args = " ! "
     if len(message.text.split()) >= 2:
@@ -32,3 +32,6 @@ async def tagall(client, message):
             limit = 1
             string = ""
             await asyncio.sleep(2)
+
+module_list['Tagall'] = f'{prefix}tagall'
+file_list['Tagall'] = 'bomber.py'
