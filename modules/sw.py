@@ -1,10 +1,10 @@
-@app.on_message(filters.command("sw", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("sw", prefixes=prefix) & filters.me)
 
 async def switch(client: Client, message: Message):
 
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда sw"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     text = " ".join(message.command[1:])
     ru_keys = """ёйцукенгшщзхъфывапролджэячсмитьбю.Ё"№;%:?ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭ/ЯЧСМИТЬБЮ,"""
@@ -23,3 +23,6 @@ async def switch(client: Client, message: Message):
         change = str.maketrans(ru_keys + en_keys, en_keys + ru_keys)
         text = str.translate(text, change)
         await message.edit(text)
+
+module_list['Swicher'] = f'{prefix}sw'
+file_list['Bomber'] = 'bomber.py'
