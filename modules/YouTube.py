@@ -32,5 +32,5 @@ async def myt(client, message):
     await message.delete()
     os.remove("music.m4a")
 
-module_list['YouTube'] = f'{prefix}bomber | {prefix}sbomber | {prefix}bbomber'
+module_list['YouTube'] = f'{prefix}yt | {prefix}sbomber | {prefix}bbomber'
 file_list['Bomber'] = 'bomber.py'
