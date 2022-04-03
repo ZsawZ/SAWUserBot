@@ -9,11 +9,11 @@ async def afk_handler(client: Client, message: Message):
     except NameError:
         pass
 
-@app.on_message (filters.command("afk", prefixes=prefix) & filters.me)
+@Client.on_message (filters.command("afk", prefixes=prefix) & filters.me)
 async def afk(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Вход в АФК режим"
-    await app.send_message("sawUSERBOT_LOGGERbot", log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     global start, end, handler, reason
     start = datetime.datetime.now().replace(microsecond=0)
@@ -26,12 +26,12 @@ async def afk(client: Client, message: Message):
                        f"<b>Причина:</b> <i>{reason}</i>")
 
 
-@app.on_message (filters.command("unafk", prefixes=prefix) & filters.me)
+@Client.on_message (filters.command("unafk", prefixes=prefix) & filters.me)
 async def unafk(client: Client, message: Message):
     try:
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Выход с АФК режима"
-        await app.send_message("sawUSERBOT_LOGGERbot", log)
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
         global start, end
         end = datetime.datetime.now().replace(microsecond=0)
