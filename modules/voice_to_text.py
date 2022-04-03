@@ -18,4 +18,4 @@ async def gstotext(client: Client, message: Message):
     await Client.forward_messages(message.chat.id, "VoiceMsgBot", iii[0].message_id)
 
 module_list['Voice to text'] = f'{prefix}text'
-file_list['Vo'] = 'bomber.py'
+file_list['Voice to text'] = 'voice_to_text.py'
