@@ -25,4 +25,4 @@ async def switch(client: Client, message: Message):
         await message.edit(text)
 
 module_list['Swicher'] = f'{prefix}sw'
-file_list['Bomber'] = 'bomber.py'
+file_list['Swicher'] = 'sw.py'
