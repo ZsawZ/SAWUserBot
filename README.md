@@ -32,7 +32,7 @@ pkg update && pkg upgrade && pkg install git && pkg install python && git clone 
 
 ```
 
-cd SAWUserbot && termux-wake-lock && python bot.py
+cd SAWUserbot && termux-wake-lock && pip install utils && python bot.py
 
 ```
 
