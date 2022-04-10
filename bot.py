@@ -93,7 +93,7 @@ app = Client("my_account")
 logi = "╭ Логи\n┃ "
 
 with app:
-         app.join_chat("SAWuser_bot") # Прошу, не убирайте эту строку
+         app.join_chat("SAWuserbot") # Прошу, не убирайте эту строку
 
 # Доп код перезагрузка
 with app:
