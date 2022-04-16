@@ -147,7 +147,7 @@ async def restartt(client: Client, message: Message):
     await restart(message, restart_type="restart")
 
 @app.on_message(filters.command("update", prefixes=".") & filters.me)
-async def updatte(client: Client, message: Message):
+async def update(client: Client, message: Message):
     now = datetime.datetime.now()
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Юзербот был обновлён"
