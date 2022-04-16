@@ -534,6 +534,17 @@ async def ladder(client: Client, message: Message):
 # Quotes
 @app.on_message(filters.command("q", prefixes=".") & filters.me)
 @with_reply
+def with_reply(func):
+
+    async def wrapped(client: Client, message: types.Message):
+
+        if not message.reply_to_message:
+            await message.edit("<b>Reply to message is required</b>")
+        else:
+            return await func(client, message)
+
+    return wrapped
+
 async def quote_cmd(client: Client, message: types.Message):
     if len(message.command) > 1 and message.command[1].isdigit():
         count = int(message.command[1])
