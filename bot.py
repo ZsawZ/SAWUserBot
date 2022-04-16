@@ -532,6 +532,27 @@ async def ladder(client: Client, message: Message):
     await message.edit(ot)
 
 # Quotes
+def resize_image(input_img, output=None, img_type="PNG"):
+
+    if output is None:
+
+        output = BytesIO()
+        output.name = f"sticker.{img_type.lower()}"
+
+    with Image.open(input_img) as img:
+        # We used to use thumbnail(size) here, but it returns with a *max* dimension of 512,512
+        # rather than making one side exactly 512 so we have to calculate dimensions manually :(
+        if img.width == img.height:
+            size = (512, 512)
+        elif img.width < img.height:
+            size = (max(512 * img.width // img.height, 1), 512)
+        else:
+            size = (512, max(512 * img.height // img.width, 1))
+
+        img.resize(size).save(output, img_type)
+
+    return output
+
 def format_exc(e: Exception, hint: str = None):
     traceback.print_exc()
     if isinstance(e, errors.RPCError):
