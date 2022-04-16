@@ -16,6 +16,7 @@ from time import time
 from typing import Dict, Union
 from contextlib import suppress
 import utils
+import PIL
 from pyrogram import Client, ContinuePropagation, filters
 from pyrogram.errors import (
     UserAdminInvalid,
@@ -24,6 +25,7 @@ from pyrogram.errors import (
     UsernameInvalid,
     RPCError,
 )
+from PIL import Image
 from pyrogram.raw import functions, types
 from pyrogram.types import Message, ChatPermissions
 from pyrogram.utils import (
