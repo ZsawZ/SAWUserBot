@@ -532,8 +532,22 @@ async def ladder(client: Client, message: Message):
     await message.edit(ot)
 
 # Quotes
-@app.on_message(filters.command("q", prefixes=".") & filters.me)
-@with_reply
+def format_exc(e: Exception, hint: str = None):
+    traceback.print_exc()
+    if isinstance(e, errors.RPCError):
+        return (
+            f"<b>Telegram API error!</b>\n"
+            f"<code>[{e.CODE} {e.ID or e.NAME}] - {e.MESSAGE}</code>"
+        )
+    else:
+        if hint:
+            hint_text = f"\n\n<b>Hint: {hint}</b>"
+        else:
+            hint_text = ""
+        return (
+            f"<b>Error!</b>\n" f"<code>{e.__class__.__name__}: {e}</code>" + hint_text
+        )
+
 def with_reply(func):
 
     async def wrapped(client: Client, message: types.Message):
@@ -545,6 +559,8 @@ def with_reply(func):
 
     return wrapped
 
+@app.on_message(filters.command("q", prefixes=".") & filters.me)
+@with_reply
 async def quote_cmd(client: Client, message: types.Message):
     if len(message.command) > 1 and message.command[1].isdigit():
         count = int(message.command[1])
