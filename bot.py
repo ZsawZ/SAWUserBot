@@ -38,7 +38,6 @@ from io import BytesIO
  
 import requests
 from pyrogram import Client, filters, errors, types
-from utils.scripts import with_reply, format_exc, resize_image
 
 
 logo = """\033[31m
