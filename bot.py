@@ -38,8 +38,6 @@ from io import BytesIO
  
 import requests
 from pyrogram import Client, filters, errors, types
- 
-from utils.misc import modules_help, prefix
 from utils.scripts import with_reply, format_exc, resize_image
 
 
@@ -534,7 +532,7 @@ async def ladder(client: Client, message: Message):
     await message.edit(ot)
 
 # Quotes
-@app.on_message(filters.command("q", prefixes=prefix) & filters.me)
+@app.on_message(filters.command("q", prefixes=".") & filters.me)
 @with_reply
 async def quote_cmd(client: Client, message: types.Message):
     if len(message.command) > 1 and message.command[1].isdigit():
@@ -603,7 +601,7 @@ async def quote_cmd(client: Client, message: types.Message):
         await message.delete()
  
  
-@app.on_message(filters.command("fq", prefixes=prefix) & filters.me)
+@app.on_message(filters.command("fq", prefixes=".") & filters.me)
 @with_reply
 async def fake_quote_cmd(client: Client, message: types.Message):
     is_png = "!png" in message.command or "!file" in message.command
