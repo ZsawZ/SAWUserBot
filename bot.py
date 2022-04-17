@@ -554,9 +554,7 @@ def resize_image(input_img, output=None, img_type="PNG"):
             size = (max(512 * img.width // img.height, 1), 512)
         else:
             size = (512, max(512 * img.height // img.width, 1))
-
         img.resize(size).save(output, img_type)
-
     return output
 
 def format_exc(e: Exception, hint: str = None):
@@ -576,14 +574,12 @@ def format_exc(e: Exception, hint: str = None):
         )
 
 def with_reply(func):
-
     async def wrapped(client: Client, message: types.Message):
 
         if not message.reply_to_message:
             await message.edit("<b>Reply to message is required</b>")
         else:
             return await func(client, message)
-
     return wrapped
 
 @app.on_message(filters.command("q", prefixes=".") & filters.me)
