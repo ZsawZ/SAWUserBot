@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 from gtts import gTTS
 import os
+import pillow
 import re
 from time import time
 from typing import Dict, Union
