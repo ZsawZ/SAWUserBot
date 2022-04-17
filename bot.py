@@ -555,6 +555,7 @@ def resize_image(input_img, output=None, img_type="PNG"):
         else:
             size = (512, max(512 * img.height // img.width, 1))
         img.resize(size).save(output, img_type)
+    output.seek(0)
     return output
 
 def format_exc(e: Exception, hint: str = None):
@@ -712,8 +713,6 @@ async def fake_quote_cmd(client: Client, message: types.Message):
  
  
 files_cache = {}
- 
- 
 async def render_message(app: Client, message: types.Message) -> dict:
     async def get_file(file_id) -> str:
         if file_id in files_cache:
