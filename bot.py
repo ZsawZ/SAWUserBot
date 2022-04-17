@@ -132,10 +132,10 @@ async def help(client: Client, message: Message):
     log = logi + timnow + "\n╰ Список комманд"
     await app.send_message("sawUSERBOT_LOGGERbot", log)
 
-    await message.edit("""<b><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW 1.9.3 [СТАБИЛЬНАЯ] 🤖</a></b>
+    await message.edit("""<b><a href="https://t.me/SAWuserBot">🤖 UserBot SAW 1.9.3 [СТАБИЛЬНАЯ] 🤖</a></b>
 <b><a href="https://t.me/sawandr">👨‍💻 Создатель 👨‍💻</a></b>
 <b><a href="https://github.com/Brawl9008/SAWUserbot#readme">🤔 Как установить? 🤔</a></b>
-<b><a href="https://telegra.ph/KOMANDY-SAWUSERBOT-03-29">📂 Команды 📂</a></b>""" ,disable_web_page_preview=True)
+<b><a href="https://telegra.ph/KOMANDY-SAWUSERBOT-04-17">📂 Команды 📂</a></b>""" ,disable_web_page_preview=True)
 
 async def restart(message: Message, restart_type):
     if restart_type == "update": text = "1"
