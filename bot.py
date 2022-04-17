@@ -2174,7 +2174,7 @@ async def demotivator(client, message):
     else:
         await message.edit("Сделайте реплай на фото")
 
-Client.on_message(
+@app.on_message(
     filters.command("exec", ".") & filters.me
 )
 def user_exec(client: Client, message: Message):
@@ -2207,7 +2207,7 @@ def user_exec(client: Client, message: Message):
 
 
 # noinspection PyUnusedLocal
-@Client.on_message(filters.command("eval", ".") & filters.me)
+@app.on_message(filters.command("eval", ".") & filters.me)
 def user_eval(client: Client, message: Message):
     if len(message.command) == 1:
         message.edit("<b>Code to eval isn't provided</b>")
