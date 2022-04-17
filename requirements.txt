@@ -1,3 +1,4 @@
+wheel
 aiofiles
 aiohttp
 anyio
@@ -45,7 +46,6 @@ wikipedia
 win32-setctime
 yarl
 youtube-dl
-wheel
 pygments
 ffmpeg-python
 pymongo
