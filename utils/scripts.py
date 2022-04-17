@@ -8,7 +8,6 @@ import subprocess
 from pyrogram import Client, errors, types
 import traceback
 
-
 def text(message: types.Message):
     return message.text if message.text else message.caption
 
