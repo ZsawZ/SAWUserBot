@@ -94,6 +94,7 @@ Telegram Канал - @SAWuser_bot
 
 
 
+Юзербот запущен!
 Логи:"""
 print(logo)
 
