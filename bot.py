@@ -536,7 +536,7 @@ async def ladder(client: Client, message: Message):
     await message.edit(ot)
 
 # Quotes
-@Client.on_message(filters.command(["q", "quote"], prefix) & filters.me)
+@app.on_message(filters.command("q", ".") & filters.me)
 @with_reply
 async def quote_cmd(client: Client, message: types.Message):
     if len(message.command) > 1 and message.command[1].isdigit():
