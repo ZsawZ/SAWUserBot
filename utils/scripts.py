@@ -1,24 +1,16 @@
 import asyncio
-
 import os
-
 import sys
 from io import BytesIO
-
 from PIL import Image
 import importlib
 import subprocess
-
 from pyrogram import Client, errors, types
 import traceback
 
 
 def text(message: types.Message):
     return message.text if message.text else message.caption
-
-
-def restart():
-    os.execvp(sys.executable, [sys.executable, "main.py"])
 
 
 def format_exc(e: Exception, hint: str = None):
