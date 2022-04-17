@@ -40,6 +40,11 @@ from io import BytesIO
  
 import requests
 from pyrogram import Client, filters, errors, types
+from io import StringIO
+from contextlib import redirect_stdout
+
+from pyrogram import Client, filters
+from pyrogram.types import Message
 
 
 logo = """\033[31m
