@@ -2194,11 +2194,11 @@ for _ in range(10):
 	
 @app.on_message(filters.command("moons2", ".") & filters.me)
 for _ in range(10):
-			for moon2 in ['🌕','🌖','🌗','🌘','🌑','🌒','🌓','🌔']:
-				await message.edit(moon2)
-				await sleep(0.3)
+	for moon2 in ['🌕','🌖','🌗','🌘','🌑','🌒','🌓','🌔']:
+		await message.edit(moon2)
+		await sleep(0.3)
 
-	async def clockscmd(self, message):
+@app.on_message(filters.command("clocks", ".") & filters.me)
 		for _ in range(12):
 			for clock in ['🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚','🕛']:
 				await message.edit(clock)
