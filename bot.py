@@ -2181,34 +2181,34 @@ def user_eval(client: Client, message: Message):
         message.edit(format_exc(e))
 
 @app.on_message(filters.command("hearts", ".") & filters.me)
-for _ in range(10):
-	for heart in ['❤','🤎', '💛', '💚', '🤍', '💜']:
-		await message.edit(heart)
-		await sleep(0.3)
+    for _ in range(10):
+	    for heart in ['❤','🤎', '💛', '💚', '🤍', '💜']:
+		    await message.edit(heart)
+		    await sleep(0.3)
 
 @app.on_message(filters.command("moon", ".") & filters.me)
-for _ in range(10):
-	for moon in ['🌝', '🌚']:
-		await message.edit(moon)
-		await sleep(0.3)
+    for _ in range(10):
+	    for moon in ['🌝', '🌚']:
+		    await message.edit(moon)
+		    await sleep(0.3)
 	
 @app.on_message(filters.command("moons2", ".") & filters.me)
-for _ in range(10):
-	for moon2 in ['🌕','🌖','🌗','🌘','🌑','🌒','🌓','🌔']:
-		await message.edit(moon2)
-		await sleep(0.3)
+    for _ in range(10):
+	    for moon2 in ['🌕','🌖','🌗','🌘','🌑','🌒','🌓','🌔']:
+		    await message.edit(moon2)
+		    await sleep(0.3)
 
 @app.on_message(filters.command("clocks", ".") & filters.me)
-for _ in range(12):
-	for clock in ['🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚','🕛']:
-		await message.edit(clock)
-		await sleep(0.3)
+    for _ in range(12):
+	    for clock in ['🕐','🕑','🕒','🕓','🕔','🕕','🕖','🕗','🕘','🕙','🕚','🕛']:
+		    await message.edit(clock)
+		    await sleep(0.3)
 
 @app.on_message(filters.command("police", "."))
-for _ in range(12):
-	for police in ['🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵\n🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵\n🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵','🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴\n🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴\n🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴']:
-		await message.edit(police)
-		await sleep(0.3)
+    for _ in range(12):
+	    for police in ['🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵\n🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵\n🔴🔴🔴🔴⬜️⬜️⬜️🔵🔵🔵🔵','🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴\n🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴\n🔵🔵🔵🔵⬜️⬜️⬜️🔴🔴🔴🔴']:
+		    await message.edit(police)
+		    await sleep(0.3)
 
 	async def dickcmd(self, message):
 		await message.edit('\u2060      💦\n❤️❤️❤️\n🗿🗿🗿\n  🗿🗿🗿\n    🗿🗿🗿\n     🗿🗿🗿\n       🗿🗿🗿\n        🗿🗿🗿\n         🗿🗿🗿\n          🗿🗿🗿\n          🗿🗿🗿\n      🗿🗿🗿🗿\n 🗿🗿🗿🗿🗿🗿\n 🗿🗿🗿  🗿🗿🗿\n    🗿🗿       🗿🗿')
