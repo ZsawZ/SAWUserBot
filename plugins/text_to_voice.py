@@ -1,3 +1,4 @@
+import os
 from pyrogram import Client, filters
 from plugins.settings.main_settings import module_list, file_list
 
