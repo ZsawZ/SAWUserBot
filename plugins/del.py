@@ -1,5 +1,4 @@
 @Client.on_message(filters.command("del", prefixes=prefix) & filters.me)
-
 async def delete_messages(client: Client, message: Message):
 
     if message.reply_to_message:
