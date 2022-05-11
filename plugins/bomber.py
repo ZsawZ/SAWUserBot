@@ -4,7 +4,7 @@ from plugins.settings.main_settings import module_list, file_list
 from prefix import my_prefix
 prefix = my_prefix()
 
-@app.on_message(filters.command("bomber", prefixes=prefix) & filters.me)
+@Client.on_message(filters.command("bomber", prefixes=prefix) & filters.me)
 async def b0mb3r(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Запущен бомбер"
