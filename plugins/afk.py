@@ -1,14 +1,10 @@
-async def afk_handler(client: Client, message: Message):
-    try:
-        global start, end
-        end = datetime.datetime.now().replace(microsecond=0)
-        afk_time = (end - start)
-        if message.from_user.is_bot is False:
-            await message.reply_text(f"<b>Я АФК уже {afk_time}</b>\n"
-                                     f"<b>Причина:</b> <i>{reason}</i>")
-    except NameError:
-        pass
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
 
+from prefix import my_prefix
+prefix = my_prefix()
+
+async def afk_handler(client: Client, message: Message):
 @Client.on_message (filters.command("afk", prefixes=prefix) & filters.me)
 async def afk(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
