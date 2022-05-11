@@ -22,8 +22,8 @@ print(f"""{red}
 ▒█░▒█ ░▀▀▀▄▄ ▒█▀▀▀ ▒█▄▄▀ ▀▀ ▒█▀▀▄ ▒█░░▒█ ░▒█░░ 
 ░▀▄▄▀ ▒█▄▄▄█ ▒█▄▄▄ ▒█░▒█ ░░ ▒█▄▄█ ▒█▄▄▄█ ░▒█░░
 {green}
-Channel: @foxteam0
-Help: @foxteamchat
+Channel: @SAWUserBot
+Help: @sawteam0
 Version: {version}
 Prefix: [ {prefix} ]
  
