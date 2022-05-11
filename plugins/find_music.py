@@ -1,7 +1,11 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+
 @Client.on_message(filters.command("m", prefixes=prefix) & filters.me)
-
 async def send_music(client: Client, message: Message):
-
     try:
         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
         log = logi + timnow + "\n╰ Поиск музыки"
