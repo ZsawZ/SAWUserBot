@@ -1,6 +1,10 @@
-plugins = dict(root="plugins")
-Client = Client("my_account", api_id=api_id, api_hash=api_hash, device_model=device_mod, plugins=plugins).run()
-@Client.on_message(filters.command("yt", prefixes=prefix) & filters.me)
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+
+Client.on_message(filters.command("yt", prefixes=prefix) & filters.me)
 async def yt(client, message):
     linked = message.command[1]
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
