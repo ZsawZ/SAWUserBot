@@ -1,7 +1,5 @@
 @Client.on_message(filters.command("jopa", prefixes=prefix) & filters.me)
-
 async def jopa(client: Client, message: Message):
-
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда jopa"
     await Client.send_message("sawUSERBOT_LOGGERbot", log)
