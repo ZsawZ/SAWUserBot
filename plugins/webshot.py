@@ -1,7 +1,20 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+from pyrogram.raw import functions, types
+from pyrogram.types import Message, ChatPermissions
+from pyrogram.utils import (
+    get_channel_id,
+    MAX_USER_ID,
+    MIN_CHAT_ID,
+    MAX_CHANNEL_ID,
+    MIN_CHANNEL_ID,
+)
+
 @Client.on_message(filters.command("webshot", prefixes=prefix) & filters.me)
-
 async def webshot(client, message):
-
     try:
         if len(message.text.split()) < 2:
             await message.edit("<i>Нету аргументов.</i>")
