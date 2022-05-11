@@ -8,9 +8,9 @@ from prestarter import prestart
 if __name__ == "__main__":
     api_id, api_hash, device_mod = my_api()
     prestart()
-    plugins = dict(root="modules")
+    plugins = dict(root="plugins")
     Client = Client("my_account", api_id=api_id, api_hash=api_hash, device_model=device_mod, plugins=plugins).run()
     with Client:
-         Client.join_chat("SAWuser_bot") 
+         Client.join_chat("SAWUserBot") 
   
  
