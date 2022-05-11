@@ -1,20 +1,29 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+from pyrogram.raw import functions, types
+from pyrogram.types import Message, ChatPermissions
+from pyrogram.utils import (
+    get_channel_id,
+    MAX_USER_ID,
+    MIN_CHAT_ID,
+    MAX_CHANNEL_ID,
+    MIN_CHANNEL_ID,
+)
+
 def get_pic(city):
-
     file_name = f"{city}.png"
-
     with open(file_name, "wb") as pic:
         response = requests.get("http://wttr.in/{citys}_2&lang=ru.png", stream=True)
-
         if not response.ok:
             print(response)
-
         for block in response.iter_content(1024):
             if not block:
                 break
-
             pic.write(block)
         return file_name
-
 @Client.on_message(filters.command("weather", prefixes=prefix) & filters.me)
 async def weather(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
