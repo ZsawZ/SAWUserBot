@@ -1,7 +1,11 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+
 @Client.on_message(filters.command("drugs", prefixes=prefix) & filters.me)
-
 async def drugs(client: Client, message: Message):
-
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Комманда drugs"
     await Client.send_message("sawUSERBOT_LOGGERbot", log)
