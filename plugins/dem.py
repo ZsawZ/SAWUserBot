@@ -1,9 +1,12 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+
 @Client.on_message(filters.command("dem", prefixes=prefix) & filters.me)
-
 async def demotivator(client, message):
-
     await message.edit("Создание демотиватора..")
- 
     if message.reply_to_message.photo:
         await client.unblock_user("memegeneration_bot")
         capt = "1. " + message.text.split(prefix + "dem ", maxsplit=1)[1]
