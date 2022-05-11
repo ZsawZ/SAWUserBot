@@ -1,7 +1,19 @@
+from pyrogram import Client, filters
+from plugins.settings.main_settings import module_list, file_list
+
+from prefix import my_prefix
+prefix = my_prefix()
+from pyrogram.raw import functions, types
+from pyrogram.types import Message, ChatPermissions
+from pyrogram.utils import (
+    get_channel_id,
+    MAX_USER_ID,
+    MIN_CHAT_ID,
+    MAX_CHANNEL_ID,
+    MIN_CHANNEL_ID,
+)
+
 content_filter = filters.create(lambda _, __, msg: bool(get_cmd_content(msg)))
-
-
-
 def get_cmd_content(message: Message):
     if message.reply_to_message:
         content = message.reply_to_message.text
