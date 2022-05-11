@@ -4,7 +4,6 @@ from plugins.settings.main_settings import module_list, file_list
 from prefix import my_prefix
 prefix = my_prefix()
 
-async def afk_handler(client: Client, message: Message):
 @Client.on_message (filters.command("afk", prefixes=prefix) & filters.me)
 async def afk(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
