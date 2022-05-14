@@ -15,7 +15,7 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
-
+logi = "╭ Логи\n┃ "
 now = datetime.datetime.now()
 timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
