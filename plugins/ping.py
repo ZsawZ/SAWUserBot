@@ -23,7 +23,7 @@ timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 async def ping(client: Client, message: Message):
     timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
     log = logi + timnow + "\n╰ Пинг"
-    await Client.send_message("sawUSERBOT_LOGGERbot" pr+log)
+    await Client.send_message("sawUSERBOT_LOGGERbot", 'pr' + log)
 
     start = perf_counter()
     await message.edit("Измеряю пинг.")
