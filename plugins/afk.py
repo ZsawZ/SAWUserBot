@@ -15,7 +15,15 @@ from pyrogram.utils import (
 )
 import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 
+
+@Client.on_message (filters.command("afk", prefixes=prefix) & filters.me)
+async def afk(client: Client, message: Message):
+    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+    log = logi + timnow + "\n╰ Вход в АФК режим"
+    await Client.send_message("sawUSERBOT_LOGGERbot", log)
+
     global start, end, handler, reason
+    start = datetime.datetime.now().replace(microsecond=0)
     handler = client.add_handler(MessageHandler(afk_handler, (filters.private & ~filters.me)))
     if len(message.text.split()) >= 2:
         reason = message.text.split(" ", maxsplit=1)[1]
@@ -28,8 +36,13 @@ import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama
 @Client.on_message (filters.command("unafk", prefixes=prefix) & filters.me)
 async def unafk(client: Client, message: Message):
     try:
+        timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+        log = logi + timnow + "\n╰ Выход с АФК режима"
+        await Client.send_message("sawUSERBOT_LOGGERbot", log)
+
         global start, end
-               afk_time = (end - start)
+        end = datetime.datetime.now().replace(microsecond=0)
+        afk_time = (end - start)
         await message.edit(f"<b>Я теперь не АФК.\nБыл в афк {afk_time}</b>")
         client.remove_handler(*handler)
     except NameError:
