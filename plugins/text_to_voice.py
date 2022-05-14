@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from plugins.settings.main_settings import module_list, file_list
-
+from time import time
 from prefix import my_prefix
 prefix = my_prefix()
 from pyrogram.raw import functions, types
