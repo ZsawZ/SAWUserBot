@@ -16,6 +16,8 @@ from pyrogram.utils import (
 )
 import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 
 @Client.on_message(filters.command("bomber", prefixes=prefix) & filters.me)
