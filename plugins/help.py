@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from plugins.settings.main_settings import module_list, version
 from telegraph import Telegraph
- 
+from time import time
 from prefix import my_prefix
 prefix = my_prefix()
  
