@@ -16,14 +16,15 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+logi = "╭ Логи\n┃ "
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("purge", prefixes=prefix) & filters.me)
 async def purge(client: Client, message: Message):
         if message.reply_to_message:
 
                 timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-                log = logi + timnow + "\n╰ Удаление всех сообщений"
-                await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
                 r = message.reply_to_message.message_id
                 m = message.message_id
                 msgs = []
