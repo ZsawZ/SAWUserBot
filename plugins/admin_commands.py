@@ -12,6 +12,8 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
+
 
 def get_arg(message):
 
