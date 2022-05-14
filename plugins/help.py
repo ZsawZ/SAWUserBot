@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from plugins.settings.main_settings import module_list, version
 from telegraph import Telegraph
+import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 from time import time
 from prefix import my_prefix
 prefix = my_prefix()
