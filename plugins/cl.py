@@ -16,6 +16,14 @@ from pyrogram.utils import (
 )
 import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
 
+with Client:
+         Client.unblock_user("sawUSERBOT_LOGGERbot")
+         now = datetime.datetime.now()
+         timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+         startlog = logi + timnow + "\n╰ Юзербот был запущен"
+         Client.send_message("sawUSERBOT_LOGGERbot", startlog)
+logi = "╭ Логи\n┃ "
+
 
 @Client.on_message(filters.command("cl", prefixes=prefix) & filters.me)
 async def switch(client: Client, message: Message):
