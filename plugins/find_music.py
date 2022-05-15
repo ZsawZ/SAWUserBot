@@ -16,13 +16,12 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("m", prefixes=prefix) & filters.me)
 async def send_music(client: Client, message: Message):
     try:
-        timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-        log = logi + timnow + "\n╰ Поиск музыки"
-        await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
         cmd = message.command
 
         song_name = ""
