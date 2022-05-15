@@ -64,7 +64,6 @@ async def repPlus(client: Client, message: Message):
                 text = "❤️ Вы повысили мою репутацию ❤️\n🔝 Репутация " + str(repo) + " 🔝"
                 await message.reply_text(text)
             log = l0g + "❤️ Вы повысили мою репутацию ❤️\n🔝 Репутация " + str(repo) + " 🔝"
-            await Client.send_message("sawUSERBOT_LOGGERbot", log)
     except:
         pass
 
