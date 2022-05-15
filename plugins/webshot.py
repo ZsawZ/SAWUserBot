@@ -15,6 +15,8 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("webshot", prefixes=prefix) & filters.me)
 async def webshot(client, message):
@@ -27,10 +29,6 @@ async def webshot(client, message):
         full_link = "https://webshot.deam.io/{}/?width=1920&height=1080?type=png".format(user_link)
         await client.send_photo(message.chat.id, full_link, caption=f"<b> Ссылка ⟶ {user_link}</b>")
 
-
-        timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-        log = logi + timnow + "\n╰ Скриншот сайта"
-        await Client.send_message("sawUSERBOT_LOGGERbot", log)
 
     except:
         await message.edit("<i>Неизвестный сайт.</i>")
