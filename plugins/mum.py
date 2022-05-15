@@ -16,12 +16,11 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("mum", prefixes=prefix) & filters.me)
 async def mum(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Комманда mum"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     text = "🔍 Поиск твоей мамки начался..."
     await message.edit(str(text))
     await asyncio.sleep(3.0)
