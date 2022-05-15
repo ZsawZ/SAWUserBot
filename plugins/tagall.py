@@ -20,10 +20,6 @@ timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("tagall", prefixes=prefix) & filters.me)
 async def tagall(client, message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Отмечены все участники"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     args = " ! "
     if len(message.text.split()) >= 2:
         args = message.text.split("." + "tagall ", maxsplit=1)[1]
