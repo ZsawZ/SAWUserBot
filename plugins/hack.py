@@ -16,12 +16,11 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("hack", prefixes=prefix) & filters.me)
 async def hack(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Комманда hack"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     perc = 0
     while(perc < 100):
         try:
