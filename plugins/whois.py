@@ -15,12 +15,11 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("infofull", prefixes=prefix) & filters.me)
 async def info(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Полная информация"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
     if message.reply_to_message:
         username = message.reply_to_message.from_user.username
         id = message.reply_to_message.from_user.id
@@ -48,10 +47,6 @@ async def info(client: Client, message: Message):
 
 @Client.on_message(filters.command("info", prefixes=prefix) & filters.me)
 async def info(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Информация"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     if message.reply_to_message:
         username = message.reply_to_message.from_user.username
         id = message.reply_to_message.from_user.id
