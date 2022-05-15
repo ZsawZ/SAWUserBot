@@ -1,6 +1,6 @@
 import wget
 from pyrogram import Client, filters
-from plugins.restarter import restart
+from plugins.restart import restart
 from plugins.settings.main_settings import module_list
 
 from prefix import my_prefix
