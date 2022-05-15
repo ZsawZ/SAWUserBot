@@ -23,9 +23,6 @@ async def yt(client, message):
 
 @Client.on_message(filters.command("myt", prefixes=prefix) & filters.me)
 async def myt(client, message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Запрос на скачивание звука"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
     myth = "youtube-dl -f 140 " + message.command[1] + " -o music.m4a"
     await message.edit("Скачивание аудиодорожки...")
     os.system(myth)
