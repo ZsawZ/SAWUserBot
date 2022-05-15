@@ -1,38 +1,26 @@
 from pyrogram import Client, filters
+from subprocess import Popen, PIPE, TimeoutExpired
+from time import perf_counter
 from plugins.settings.main_settings import module_list, file_list
-import time, random, datetime, asyncio, sys, wikipedia, requests, json, colorama, requests, youtube_dl, subprocess, configparser
-from time import sleep, perf_counter, time
 
-from time import time
 from prefix import my_prefix
 prefix = my_prefix()
-from pyrogram.raw import functions, types
-from pyrogram.types import Message, ChatPermissions
-from pyrogram.utils import (
-    get_channel_id,
-    MAX_USER_ID,
-    MIN_CHAT_ID,
-    MAX_CHANNEL_ID,
-    MIN_CHANNEL_ID,
-)
 
-@Client.on_message(filters.command("shell", prefixes=prefix) & filters.me)
-async def shell(_, message: Message):
-    if len(message.command) < 2:
-        return await message.edit("<b>Использование: .shell {команда}</b>")
-    cmd_text = message.text.split(maxsplit=1)[1]
-    cmd_obj = Popen(
-        cmd_text,
-        shell=True,
-        stdout=PIPE,
-        stderr=PIPE,
-        text=True,
+
+@Client.on_message(filters.command(["shell", "sh"], prefixes=prefix) & filters.me)
+async def example_edit(client, message):
+    if not message.reply_to_message and len(message.command) == 1:
+        return await message.edit(
+            "<b>Использование: {prefix}shell</b>"
+        )
+    cmd_text = (
+        message.text.split(maxsplit=1)[1]
+        if message.reply_to_message is None
+        else message.reply_to_message.text
     )
-
-    char = "#" if os.getuid() == 0 else "$"
-    text = f"<b>{char}</b> <code>{cmd_text}</code>\n\n"
-
-    await message.edit(text + "<b>Running...</b>")
+    cmd_obj = Popen(cmd_text, shell=True, stdout=PIPE, stderr=PIPE, text=True)
+    await message.edit("<b>Running...</b>")
+    text = f"<code>$ {cmd_text}</code>\n\n"
     try:
         start_time = perf_counter()
         stdout, stderr = cmd_obj.communicate(timeout=60)
@@ -44,7 +32,8 @@ async def shell(_, message: Message):
             text += "<b>Output:</b>\n" f"<code>{stdout}</code>\n\n"
         if stderr:
             text += "<b>Error:</b>\n" f"<code>{stderr}</code>\n\n"
-        text += f"<b>Completed in {round(stop_time - start_time, 5)} seconds with code {cmd_obj.returncode}</b>"
+        time = round(stop_time - start_time, 3) * 1000
+        text += f"<b>Completed in {time} miliseconds with code {cmd_obj.returncode}</b> "
     await message.edit(text)
     cmd_obj.kill()
 
