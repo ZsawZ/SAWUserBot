@@ -15,6 +15,8 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("tagall", prefixes=prefix) & filters.me)
 async def tagall(client, message):
