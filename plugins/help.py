@@ -35,7 +35,7 @@ async def helps(client, message):
 <><a href="https://t.me/SAWUserBot">🤖 UserBot SAW {version} 🤖</a></b>
 <b><a href="https://t.me/ggshnick">👨‍💻 Создатель 👨‍💻</a></b>
 <b><a href="https://github.com/Brawl9008/SAWUserbot#readme">🤔 Как установить? 🤔</a></b>
-<b><a href="https://telegra.ph/KOMANDY-SAWUSERBOT-03-29">📂 Команды 📂</a></b> """, disable_web_page_preview=True)
+<b><a href={link}>📂 Команды 📂</a></b> """, disable_web_page_preview=True)
  
  
 module_list['Help'] = f'{prefix}help'
