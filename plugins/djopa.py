@@ -16,12 +16,11 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("jopa", prefixes=prefix) & filters.me)
 async def jopa(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Комманда jopa"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     perc = 0
     while(perc < 100):
         try:
