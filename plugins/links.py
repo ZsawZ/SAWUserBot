@@ -16,6 +16,9 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 linkToken = "6c2ac1846a1c1A2d5f88A3E5fbf0e14fcf96d7d0"
 async def link_short(link: str):
     async with ClientSession(
@@ -31,10 +34,6 @@ async def link_short(link: str):
 
 @Client.on_message(filters.command("short", prefixes=prefix) & filters.me)
 async def shorten_link_command(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Сокращенная ссылка"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     if message.reply_to_message:
          link = message.reply_to_message.text
     else:
