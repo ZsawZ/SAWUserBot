@@ -28,7 +28,7 @@ multidict
 phonenumbers
 pyaes
 pydantic
-Pyrogram
+pyrogram==1.4.16
 PySocks
 random-user-agent
 requests
