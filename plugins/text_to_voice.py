@@ -16,15 +16,13 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 lang_code = os.environ.get("lang_code", "ru")
 
 @Client.on_message(filters.command("voice", prefixes=prefix) & filters.me)
 async def voice(client, message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Текст в голосовое"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     if len(message.text.split()) == 1:
         await message.edit(bantuan)
         return
