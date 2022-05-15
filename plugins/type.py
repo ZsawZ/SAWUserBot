@@ -15,13 +15,11 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("type", prefixes=prefix) & filters.me)
 async def type(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Комада type"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     orig_text = message.text.split("." + "type ", maxsplit=1)[1]
     text = orig_text
     tbp = ""
