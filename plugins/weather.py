@@ -15,6 +15,8 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 def get_pic(city):
     file_name = f"{city}.png"
@@ -29,10 +31,6 @@ def get_pic(city):
         return file_name
 @Client.on_message(filters.command("weather", prefixes=prefix) & filters.me)
 async def weather(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Погода"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     city = message.command[1]
     await message.edit("```Загрузка...```")
     r = requests.get(f"https://wttr.in/{city}?m?M?0?q?T&lang=ru")
