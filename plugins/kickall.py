@@ -16,12 +16,11 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.command("kickall hide", prefixes=prefix) & filters.me)
 def kickall(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Удалены участники"
-    Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     message.delete()
     num = 0
     for all in client.iter_chat_members(message.chat.id):
