@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from plugins.settings.main_settings import module_list, file_list
-from plugins.restarter import restart
+from plugins.restart import restart
 import configparser
 import os
 import sys
