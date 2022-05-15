@@ -15,6 +15,8 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("text", prefixes=prefix) & filters.me)
 async def gstotext(client: Client, message: Message):
@@ -22,10 +24,6 @@ async def gstotext(client: Client, message: Message):
     if not message.reply_to_message:
         await message.edit("Ответь на сообщение")
         return
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Переведено голосовое в текст"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     await message.edit("Пишу текстом...")
     await message.reply_to_message.forward("VoiceMsgBot")
     await asyncio.sleep(5)
