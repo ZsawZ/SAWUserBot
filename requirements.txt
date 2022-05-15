@@ -56,3 +56,4 @@ dnspython
 requests
 environs
 GitPython
+telegraph
