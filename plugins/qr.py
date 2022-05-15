@@ -16,6 +16,9 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 content_filter = filters.create(lambda _, __, msg: bool(get_cmd_content(msg)))
 def get_cmd_content(message: Message):
     if message.reply_to_message:
@@ -28,10 +31,6 @@ def get_cmd_content(message: Message):
 
 @Client.on_message(filters.command("qr", prefixes=prefix) & filters.me & content_filter)
 async def qr_cmd(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Создан qr-code"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     text = get_cmd_content(message)
     await message.delete()
     async with ClientSession() as session:
