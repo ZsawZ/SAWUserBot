@@ -15,12 +15,11 @@ from pyrogram.utils import (
     MAX_CHANNEL_ID,
     MIN_CHANNEL_ID,
 )
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("wiki", prefixes=prefix) & filters.me)
 async def wiki(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Поиск в википедии"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
     lang = message.command[1]
     user_request = " ".join(message.command[2:])
     await message.edit("<b>Ищем инфу</b>")
