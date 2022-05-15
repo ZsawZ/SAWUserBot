@@ -6,13 +6,12 @@ from time import sleep, perf_counter, time
 from time import time
 from prefix import my_prefix
 prefix = my_prefix()
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
 
 @Client.on_message(filters.command("yt", prefixes=prefix) & filters.me)
 async def yt(client, message):
     linked = message.command[1]
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Запрос на скачивания видео"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
     await message.edit("Скачивание видео...")
     ydl_opts = { "outtmpl": "video.mp4", }
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
