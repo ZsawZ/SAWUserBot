@@ -32,8 +32,8 @@ async def helps(client, message):
 <b>🔒 | Версия: {version}</b>
 <b>💼 | Модули: {len(module_list)}</b>
  
-<><a href="https://t.me/SAWuser_Bot">🤖 UserBot SAW {version} 🤖</a></b>
-<b><a href="https://t.me/sawandr">👨‍💻 Создатель 👨‍💻</a></b>
+<><a href="https://t.me/SAWUserBot">🤖 UserBot SAW {version} 🤖</a></b>
+<b><a href="https://t.me/ggshnick">👨‍💻 Создатель 👨‍💻</a></b>
 <b><a href="https://github.com/Brawl9008/SAWUserbot#readme">🤔 Как установить? 🤔</a></b>
 <b><a href="https://telegra.ph/KOMANDY-SAWUSERBOT-03-29">📂 Команды 📂</a></b> """, disable_web_page_preview=True)
  
