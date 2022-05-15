@@ -16,15 +16,13 @@ from pyrogram.utils import (
     MIN_CHANNEL_ID,
 )
 
+now = datetime.datetime.now()
+timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
+
 @Client.on_message(filters.text & filters.incoming & filters.regex("^\-$") & filters.reply)
 async def repMinus(client: Client, message: Message):
     try:
         if message.reply_to_message.from_user.is_self:
-
-            now = datetime.datetime.now()
-            timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-            l0g = logi + timnow + "\n╰ Репутация была понижена\n\n"
-
             with open("rep.txt", "r+") as f:
                 data = f.read()
                 data = int(data)
