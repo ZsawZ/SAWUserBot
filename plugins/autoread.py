@@ -29,10 +29,6 @@ async def auto_read(client: Client, message: Message):
 
 @Client.on_message(filters.command("autoread", prefixes=prefix) & filters.me)
 async def add_to_auto_read(client: Client, message: Message):
-    timnow = now.strftime("Дата %d.%m.%Y • Время %H:%M:%S")
-    log = logi + timnow + "\n╰ Авточтение"
-    await Client.send_message("sawUSERBOT_LOGGERbot", log)
-
     if message.chat.id in f:
         f.remove(message.chat.id)
         await message.edit("Авточтение отключено")
