@@ -65,7 +65,7 @@ def user_eval(client: Client, message: Message):
         message.edit(format_exc(e))
 
 
-modules_help["python"] = {
+module_list["python"] = {
     "ex [python code]": "Execute Python code",
     "exnoedit [python code]": "Execute Python code and return result with reply",
     "eval [python code]": "Eval Python code",
