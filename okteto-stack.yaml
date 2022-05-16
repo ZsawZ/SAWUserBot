@@ -1,6 +1,6 @@
 name: sawub
 services:
-  worker:
+  w0rker:
     public: true
     build: .
     replicas: 1
@@ -10,8 +10,8 @@ services:
       cpu: 900m
       memory: 2Gi
     volumes:
-      - worker:/data
+      - w0rker:/data
  
 volumes:
-  worker:
+  w0rker:
     size: 1Gi
