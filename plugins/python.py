@@ -3,10 +3,10 @@ from contextlib import redirect_stdout
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
-# noinspection PyUnresolvedReferences
-from utils.db import db
-
+from time import time
+from prefix import my_prefix
+prefix = my_prefix()
+from pyrogram import Client, filters
 
 # noinspection PyUnusedLocal
 @Client.on_message(
