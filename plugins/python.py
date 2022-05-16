@@ -1,12 +1,13 @@
 from io import StringIO
 from contextlib import redirect_stdout
+from plugins.settings.main_settings import module_list, file_list
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from time import time
 from prefix import my_prefix
 prefix = my_prefix()
-from pyrogram import Client, filters
+
 
 # noinspection PyUnusedLocal
 @Client.on_message(
